@@ -1,0 +1,9 @@
+
+*.log
+
+
+/api/node_modules
+/angular/node_modules
+/angular/bower_components
+/api/config/auth.js
+/api/public/uploads

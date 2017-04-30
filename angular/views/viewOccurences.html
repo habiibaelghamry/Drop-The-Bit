@@ -1,0 +1,33 @@
+
+<br>
+<br>
+<br>
+<div class="title text-center wow fadeIn" data-wow-duration="1500ms">
+      <h2>{{time}}<span class="color"></span></h2>
+      <div class="border"></div>
+</div>
+<section id="blog-page">
+     <div class="container">
+         <div class="row">
+
+           <div id="blog-posts" class="col-md-8 col-sm-8">
+               <div class="post-item">
+
+                   <article class="entry wow fadeInDown"  data-wow-duration="1000ms" data-wow-delay="300ms">
+
+                       <div ng-repeat="occ in eventocc | orderBy : 'day'">
+                         {{occ.day | date}} <br> <!-- ng-controller="viewBookingsController" -->
+                         {{occ.available}} available places. <br>
+
+                          <button class="btn btn-transparent"  ng-disabled="occ.bookings.length == 0" ng-if = "type == 4" ng-click="viewBookings(occ._id)">View Bookings</button>
+                          <button  class="btn btn-transparent" ng-if = "type == 4" ng-click="deleteEvent(occ._id)">Delete Time-Slot</button>
+
+                          <hr width="60%">
+                       </div>
+                   </article>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </section>

@@ -1,0 +1,53 @@
+<center>
+       <section id = "blog-page">
+         <div ng-if = "type != 4">
+           <center>
+           <h3>Your are not authorized to view this page.</h3> </center>
+         </div>
+            <div ng-if = "type == 4" style="max-width: 400px;" ng-app = "fasa7ny" ng-controller = "editBusinessController">
+                <form ng-model = "formData" >
+                  <h3>Description </h3><br>
+                <textarea style="color:#000;" class="w3-input w3-border w3-round" type="text" ng-model = "formData.description" rows="5" cols="70"> </textarea><br>
+                <!-- <input class="w3-input w3-border w3-round" type="text" ng-model = "formData.description"></input> <br> -->
+                <!-- <h3>Location</h3> <br> -->
+                <!-- <input style="color:#000;" class="w3-input w3-border w3-round" type="text" ng-model = "formData.location"></input> <br> -->
+                <h3>Address<h3> <br>
+                <input style="color:#000;" class="w3-input w3-border w3-round" type="text" ng-model = "formData.address"></input> <br></h3>
+                <h3>Area<h3> <br>
+                <input style="color:#000;" class="w3-input w3-border w3-round" type="text" ng-model = "formData.area"></input> <br></h3>
+                <h3>Add Another Phone<h3> <br>
+                <input style="color:#000;" class="w3-input w3-border w3-round" type="text" ng-model = "formData.phones"></input> <br></h3>
+                <h3 ng-if = "!both">Add Another Payment Method<h3> <br>
+               <input ng-if = "!cash" type="checkbox" ng-model = "formData.pay0"><label ng-if = "!cash">&nbsp;Cash&nbsp;&nbsp;</label>
+               <input ng-if = "!stripe" type="checkbox" ng-model = "formData.pay1"> <label ng-if = "!stripe">Stripe</label><br><br></h3>
+                <h3>Password<h3> <br>
+                <input style="color:#000;" class="w3-input w3-border w3-round" type="password" ng-model = "formData.password"></input> <br></h3>
+                <h3>Your Facebook Page<h3> <br>
+                <input style="color:#000;" class="w3-input w3-border w3-round" type="url" ng-model = "formData.facebookURL"></input> <br></h3>
+                <h3>Your Twitter Page<h3> <br>
+                <input style="color:#000;" class="w3-input w3-border w3-round" type="url" ng-model = "formData.twitterURL"></input> <br></h3>
+                <h3>Your Youtube Page<h3> <br>
+                <input style="color:#000;" class="w3-input w3-border w3-round" type="url" ng-model = "formData.youtubeURL"></input> <br></h3>  </h3>
+
+                <h3>Profile Picture</h3>
+                <input type="file" name="img" class="form-control w3-round" file-model="formData.img">
+
+
+
+
+                <div style = "color:#ff0000">
+                    {{error}}
+                </div>
+
+                <button type="submit" ng-click = "goToEdit()" class="btn btn-transparent">Edit Information</button>
+
+
+            </form>
+            </div>
+
+            <script>
+
+            </script>
+
+   </section>
+<center>

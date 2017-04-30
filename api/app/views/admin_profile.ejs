@@ -1,0 +1,66 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+<head>
+	<title>Node Authentication</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<style>
+		body 		{ padding-top:80px; word-wrap:break-word; }
+	</style>
+</head>
+<body>
+	<% if(!(user && user.user_type == 3)) { %>
+	<div class="page-header text-center">
+		<h1><span class="fa fa-anchor"></span>YOU ARE NOT AUTTHORIZED TO ACCESS THIS PAGE!</h1>
+		
+		<a href="/" class="btn btn-default btn-sm">HOME</a>
+	</div>
+	<% } else { %>
+	
+<div class="container">
+
+	<div class="page-header text-center">
+		<h1><span class="fa fa-anchor"></span> Admin Profile Page</h1>
+		
+		<a href="/auth/logout" class="btn btn-default btn-sm">Logout</a>
+	</div>
+
+	<div class="row">
+	<p><h4>Add Buiness</h4></p>
+	<form action="/admin/add_business" method="post">
+	<div class="form-group">
+		<label>Name</label>
+			<input type="text" class="form-control" name="name" required="true">
+		</div>
+		<div class="form-group">
+			<label>Username</label>
+			<input type="text" class="form-control" name="username" required="true">
+		</div>
+	
+		<div class="form-group">
+			<label>Email</label>
+			<input type="email" class="form-control" name="email" required="true">
+		</div>
+
+		<div class="form-group">
+			<label>merchant id</label>
+			<input type="text" class="form-control" name="merchant_ID">
+		</div>
+		<div class="form-group">
+		<!-- temp -->
+			<label>Category</label>
+			<input type="text" class="form-control" name="category" required="true">
+		</div>
+		<button type="submit" class="btn btn-warning btn-lg">Add Business</button>
+	</form>
+	</div>
+
+	<p><h4>Approve deletion of Buinesses</h4></p>
+	<a href="/admin/viewRequestedDelete" class="btn btn-warning btn-lg">view</a>
+		
+
+
+<% } %>
+</body>
+</html>

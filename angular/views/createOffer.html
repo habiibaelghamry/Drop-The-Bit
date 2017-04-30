@@ -1,0 +1,79 @@
+<div ng-if ="type != 4">
+           <center>
+          <br><br> <h1>You are not authorized to view this page.</h1><br><br><br><br>
+           </center>
+</div>
+<div ng-show="type == 4" >
+<center ng-if="type == 4" >
+       <section id = "blog-page"  >
+       <div class="title text-center wow fadeIn" data-wow-duration="1500ms" >
+            <h2>Create <span class="color">offer</span></h2>
+            <div class="border"></div>
+       </div>
+            <div style="max-width: 400px;" ng-app = "fasa7ny" >
+                <form ng-model = "formData" ng-submit ="createOffer()" >
+                    <h3>Name</h3> <br>
+                    <input style="color:#000;" class="w3-input w3-border w3-round" type="text" ng-model = "formData.name" required>
+
+                    <h3>Type</h3>
+                    <div class="styled-select">
+                      <select style="width: 400px;color:#000;height: 34px;" required ng-model="formData.type">
+                       <h3> <option disabled selected value>Choose One</option>
+                        <option value="duration">Duration</option>
+                        <option value="specific_audience">Specific Audience</option>
+                        <option value="lucky_first">First Lucky Bookers</option>
+                        <option value="min_count">Minimum Number of Bookers</option></h3>
+                      </select>
+                    </div><br>
+
+                    <div ng-if="formData.type == 'duration'">
+                    <h5>Start: <input type="date" style="color:#000;"  ng-model="formData.start_date"  required >
+                      End  :<input type="date" style="color:#000;" ng-model="formData.expiration_date" required ></h5>
+                    </div>
+
+
+                    <div ng-if="formData.type == 'lucky_first'">
+                      <h4>The first lucky  <input type="number" style="width: 70px; color:#000;" required min="1" ng-model="formData.lucky_first"> will receive the offer.
+                          </h4>
+                    </div>
+
+                    <div ng-if="formData.type == 'min_count'">
+                      <h4> Need at least  <input type="number" style="width: 70px; color:#000;" required min="1" ng-model="formData.min_count"> to receive offer.
+                          </h4>
+                    </div>
+
+                    <div ng-if="formData.type == 'specific_audience'">
+                      Please note that verification will be on site.
+                    </div>
+
+                    <h3> Discount (%) </h3>
+                    <input style="color:#000;" type="number" step="0.01" min="0.01" class="w3-input w3-border w3-round" type="text" ng-model = "formData.value" required></input> <br>
+
+                    <h3> Apply on Facility (Optional) </h3>
+                    <div class="styled-select">
+                      <select  class="selectpicker"  style="width: 400px;height: 34px; color:#000;" re data-style="btn-primary" ng-model="formData.facility_id">
+                      <option disabled selected >Choose One</option>                      
+                      <option ng-repeat="facility in facilities" value="{{facility._id}}">{{facility.name}}</option>
+                      </select>
+                    </div>
+
+                    <h3> Apply on Event (Optional) </h3>
+                    <div class="styled-select">
+                      <select  class="selectpicker"  style="width: 400px;height: 34px; color:#000;" re data-style="btn-primary" ng-model="formData.event_id">
+                      <option disabled selected value>Choose One</option>                      <option ng-repeat="event in events track by $index" value="{{event._id}}">{{event.name}}</option>
+                      </select>
+                    </div> <br>
+
+                    <h3> A Cool Picture Perhaps (Optional) </h3>
+                    <input type="file" file-model="formData.img" />
+
+                    <h3>Details </h3><br>
+                    <textarea style="color:#000;" class="w3-input w3-border w3-round" type="text" ng-model = "formData.details" rows="5" cols="70" required> </textarea><br>
+                    <div style="color:#FF0000;"> {{error_message}} </div>
+                    <button type="submit" ng-disabled="formData.$invalid" class="btn btn-transparent">CREATE</button>
+                </form>
+            </div>
+   </section>
+<center>
+
+</div>

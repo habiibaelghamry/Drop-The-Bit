@@ -1,0 +1,263 @@
+<!-- Start Preloader
+====================================
+<div id="loading-mask">
+    <div class="loading-img">
+        <img alt="Meghna Preloader" src="../img/preloader.gif"  />
+    </div>
+</div>
+ End Preloader
+==================================== -->
+
+<!-- Start Top Section (image + name + email)
+============================================= -->
+
+
+<div ng-if="type==1">
+<!-- <script>
+    var image2 = document.getElementById('profilepic');
+    var buttonUpload = document.getElementById('uploadButton');
+
+    image2.addEventListener('click', function() {
+      buttonUpload.style.display = "inline-block";
+    });
+
+    buttonUpload.addEventListener('click', function() {
+        buttonUpload.style.display = "none";
+    });
+</script> -->
+
+
+<section id="blog-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center uploadPic">
+               <form id="hiddenForm" ng-model="formData" onsubmit="javascript: return false;">
+                    <!-- edit profile pic !-->
+                    <div class="image-upload" style="float: left: 0; right: 0; margin: 0 auto;" >
+                        <label for="file-input">
+                            <div class="image-cropper" >
+                              <img ng-if = "user.profilePic" ng-src='http://{{ip}}:3000/photo/{{user.profilePic}}' alt="Avatar" id = "profilepic" class="image" style="width:100%;">
+                              <img ng-if = "!user.profilePic" ng-src='../img/avatar.png' alt="Avatar" id = "profilepic" class="image" style="width:100%;">
+                              <div class="middle">
+                                <div style="font-size: 20px; color:lightgrey;"> Change profile picture</div>
+                              </div>
+                            </div>
+                        </label>
+                        <input id="file-input" type="file" file-model="formData.img"/>
+                        <br>
+                        <button class="btn btn-booking" id = "uploadButton" ng-click = "changeImage(user._id)" style = "display:block; margin: 0 auto; display: none;"> Upload  </button>
+
+                        <!-- full name & email display !-->
+                        <div class="blog-title" style="margin: 0 auto;">
+                            <h1> {{ user.name }} </h1>
+                            <p><span class="color"> {{ user.email }} </p>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>     <!-- End col-lg-12 -->
+        </div>      <!-- End row -->
+    </div>       <!-- End container -->
+</section>    <!-- End Section -->
+
+
+
+
+<!-- Start Middle Section (Bookings + Subscriptions)
+======================================= -->
+<section id="blog-page">
+    <div class="container">
+        <div class="row">
+
+            <!-- LEFT Sectinon !-->
+            <div id="blog-posts" class="col-md-8 col-sm-8">
+
+                <!-- BOOKINGS SECTION !-->
+                <div class="post-item">
+
+                    <!-- section title -->
+                    <div class="title text-center wow fadeIn" data-wow-duration="500ms">
+                        <h2>RECENT <span class="color">BOOKINGS</span></h2>
+                        <div class="border"></div>
+                    </div>
+                    <!-- /section title -->
+
+                   <!-- Single Post -->
+                    <article class="entry wow fadeInDown"  data-wow-duration="1000ms" data-wow-delay="300ms" ng-repeat = "info in all_info">
+
+
+                        <div class="post-excerpt">  <!-- first section beginning !-->
+
+                            <!-- Name of Event + w/ + Name of Business !-->
+                            <h3>
+                                <a href=""> {{info.event.name}}</a>
+                                <a href=""> <span class="color">w/</a>
+                                <a href=""> {{info.business.name}} </a>
+                                <!-- <img src="../img/user_profile/rating_3.png" alt="rating" > !-->
+                            </h3>
+
+                            <br>
+
+                            <p> {{info.event.description}} </p>
+
+                            <br>
+
+                            <img src="../img/user_profile/phone-icon-3.png" alt="phone_icon" class="image2" align="left">
+                            <div style="padding-left: 23px;" ng-repeat = "phone in info.business.phones">
+                               <p style="font-size:12px;">  {{phone}} </p>
+                            </div>
+
+                            <img src="../img/user_profile/location_icon12.png" alt="location_icon" class="image2" align="left">
+                            <div style="padding-left: 23px;">
+                               <p style="font-size:12px">  {{info.business.address}}</p>
+                            </div>
+                        </div>  <!-- first section end !-->
+
+                        <div class="post-meta2">  <!-- second section beginning !-->
+                            <span class="post-date">
+                                <i class="fa fa-calendar"></i> {{info.eventocc.day | date }} @ {{info.eventocc.time  }}
+                            </span>
+
+                            <span class="author">
+                                <i class="fa fa-user"></i> {{info.booking.count}} person(s)</a>
+                            </span>
+
+                            <!-- <span> -->
+                                <p style="display:inline">Total: <span class="color"> {{info.booking.charge}} 150 EGP &nbsp; </p>
+                            </span>
+
+                            <div style=" display:inline;  vertical-align: middle; padding-left: 180px;">
+                                <button class="btn btn-booking" ng-click="cancelBooking(info.booking._id)">Cancel Booking</button>
+                            </div>
+                        </div>  <!-- second section end !-->
+                    </article>
+                    <!-- End Single Post -->
+
+                </div>
+                <!-- End of BOOKINS SECTION!-->
+
+            </div>
+
+
+
+
+            <!-- RIGHT Section -->
+            <div id="right-sidebar" class="col-md-4 col-sm-4">
+
+                <!-- section title -->
+                <div class="title text-center wow fadeIn" data-wow-duration="500ms">
+                    <h2> <span class="color">SUBSCRIPTIONS</span> </h2>
+                    <div class="border"></div>
+                </div>
+                <!-- /section title -->
+
+                <!-- Subcscriptions Part -->
+                <article class="entry wow fadeInDown"  data-wow-duration="1000ms" data-wow-delay="300ms">
+
+
+
+                    <div class="post-meta3" style="margin-top: 4px; margin-bottom: 4px;" ng-repeat = "subs_business in subscribed_businesses">
+                        <span class="post-date">
+                            <a style = "font-size: 15px"> {{subs_business.business.name}} </a> <!-- ASK !-->
+                        </span>
+                    </div>
+
+                    <br><br><br>
+
+                    <!-- section title -->
+                    <div class="title text-center wow fadeIn" data-wow-duration="500ms">
+                        <h2>Profile <span class="color">Details</span></h2>
+                        <div class="border"></div>
+                    </div>
+                    <!-- /section title -->
+
+
+                    <div class="post-item">
+                        <!-- Single Post -->
+                        <article class="entry wow fadeInDown"  data-wow-duration="1000ms" data-wow-delay="300ms">
+
+                            <div class="post-excerpt">  <!-- first section beginning !-->
+                                <!-- profile details !-->
+                                <div>
+
+                                    <div style="padding-left: 23px;">
+                                        <a style="font-size: 20px; color:white; margin-top: 2px; margin-bottom: 2px; opacity: 0">
+                                            no data
+                                        </a>
+                                    </div>
+
+                                    <div ng-if = "user.local.username">
+                                        <img src="../img/user_profile/at_sign.png" alt="at_sign_icon" class="image2" align="left" style = "padding-top: 4px">
+                                        <div style="padding-left: 25px;">
+                                            <a style="font-size: 20px; color:white; margin-top: 4px; margin-bottom: 4px;">
+                                                {{ user.local.username }}  <!-- ASK !-->
+                                            </a>
+                                        </div>
+                                    </div>
+
+
+                                    <div ng-if = "user.phone">
+                                        <img src="../img/user_profile/phone-icon-3.png" alt="phone_icon_profile" class="image2" align="left" style = "padding-top: 6px">
+                                        <div style="padding-left: 25px;">
+                                            <a style="font-size: 20px; color:white; margin-top: 4px; margin-bottom: 4px;">
+                                                {{ user.phone }}
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div ng-if = "user.birthdate">
+                                        <img src="../img/user_profile/bdate_icon3.png" alt="bdate_icon_" class="image2" align="left" style = "padding-top: 6px">
+                                        <div style="padding-left: 25px;">
+                                            <a style="font-size: 20px; color:white; margin-top: 4px; margin-bottom: 4px;">
+                                                {{ user.birthdate | date}}
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div ng-if = "user.gender">
+                                        <img src="../img/user_profile/gender_icon.png" alt="gender_icon" class="image2" align="left" style = "padding-top: 6px">
+                                        <div style="padding-left: 25px;">
+                                            <a style="font-size: 20px; color:white; margin-top: 4px; margin-bottom: 4px;">
+                                                {{ user.gender }}
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div ng-if = "user.address">
+                                    <i class="fa fa-location-arrow fa-1.5x" aria-hidden="true" align="left" style="color: #e3370a; top: 6px; left: 0"></i>
+                                        <div style="padding-left: 25px;">
+                                            <a style="font-size: 20px; color:white; position: relative;">
+                                                {{ user.address }}
+                                            </a>
+                                        </div>
+                                    </div>
+
+
+                                    <div style="padding-left: 23px;">
+                                        <a style="font-size: 20px; color:white; margin-top: 2px; margin-bottom: 2px; opacity: 0">
+                                            no data
+                                        </a>
+                                    </div>
+
+                                    <div >
+                                      <button class="btn btn-booking" ng-click = "goToEditProfile(user._id)" style = "display:block; margin: 0 auto;"> Edit Profile </button>
+                                    </div>
+
+                                </div>
+                            </div>  <!-- first section end !-->
+                        </article> <!-- End Single Post -->
+
+                    </div>
+                </article>
+            </div> <!-- End RIGHT Section -->
+
+        </div>      <!-- End row -->
+    </div>       <!-- End container -->
+</section>    <!-- End Section -->
+
+<div ng-if="type!=1">
+  <center>  You are not authorized to view this page. </center>
+</div>
+
+<a href="#" id="scrollUp"><i class="fa fa-angle-up fa-2x"></i></a>
+</div>

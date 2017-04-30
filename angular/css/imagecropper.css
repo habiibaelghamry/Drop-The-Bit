@@ -1,0 +1,49 @@
+  .container2 {
+      position: relative;
+      margin: auto;
+      width: 50%;
+  }
+
+  .image {
+    opacity: 1;
+    display: block;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+  }
+
+  .container2:hover .image {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    opacity: 0.3;
+  }
+
+  .container2:hover .middle {
+    opacity: 1;
+  }
+
+  .image-cropper {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 50%;
+  }
+
+.image-upload > input
+{
+   display: none;
+}

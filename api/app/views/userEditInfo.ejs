@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p>Edit Personal Info</p>
+	<% if(!(user && user.user_type == 1)) {%>
+	 <p> you're not authorized to view this page </p>
+	<%} else {%>
+	<form action = "/user/editInfo" enctype="multipart/form-data" method="post">
+
+  name: <input type="text" name="name"><br>
+  birthdate: <input type="date" name="birthdate" ><br>
+  Phone: <input type="text" name="phone" ><br>
+  Gender: <input type="text" name="gender" ><br>
+  Address: <input type="text" name="address" ><br>
+  Email: <input type="text" name="email" ><br>
+  Profile Picture: <input type="file" name = "image"><br>
+	<input type="submit"><br> </button>
+
+	</form>
+	<%}%>
+
+
+</body>
+</html>

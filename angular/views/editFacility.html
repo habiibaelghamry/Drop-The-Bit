@@ -1,0 +1,34 @@
+<h3 style="color:#000;"> &nbsp;&nbsp; Edit Facility</h3>
+<hr>
+<form name="form.userForm" ng-submit="submitForm(formData, facilityId)">
+    <div class="modal-body">
+
+    		<div class="alert alert-danger" ng-if = "err">{{err}}</div>
+
+        <div class="form-group">
+            <label style="color:#000;">Name</label>
+            <input type="text" name="name" class="form-control w3-round" ng-model="formData.name">
+        </div>
+
+        <div class="form-group">
+            <label style="color:#000;">Capacity</label>
+            <input type="number" name="capacity" class="form-control w3-round" min = "1" ng-model="formData.capacity">
+        </div>
+
+        <div class="form-group">
+            <label style="color:#000;" >Image</label>
+            <input type="file" name="img" class="form-control w3-round" file-model="formData.img">
+        </div>
+
+        <div class="form-group">
+            <label style="color:#000;" >Description</label>
+            <textarea class="form-control w3-round" type="text" ng-model = "formData.description" rows="5" cols="70"> </textarea><br>
+        </div>
+
+        <div>
+    </div>
+    <div class="modal-footer">
+        <button style="color:#000;"  type="submit" class="btn btn-primary">OK</button>
+        <a style="color:#000;" class="btn btn-warning" ng-click="cancel()">Cancel</a>
+    </div>
+</form>

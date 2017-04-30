@@ -1,0 +1,39 @@
+<center>
+       <section id = "blog-page">
+         <div ng-if = "type != 4">
+           <h3>You are not authorized to view this page.</h3>
+         </div>
+            <div ng-if = "type == 4" style="max-width: 400px;" ng-app = "fasa7ny" ng-controller = "onetimeController">
+                <form ng-model = "formData" name = "form.userForm">
+
+
+                  <h3>Name</h3> <br>
+                <input style="color:#000;" class="w3-input w3-border w3-round"  type="text" ng-model = "formData.name" required></input> <br>
+                  <h3>Description </h3><br>
+                <textarea style="color:#000;" class="w3-input w3-border w3-round" type="text" ng-model = "formData.description" rows="5" cols="70" required> </textarea><br>
+                <!-- <input class="w3-input w3-border w3-round" type="text" ng-model = "formData.description"></input> <br> -->
+               <h3>Location</h3> <br>
+                <input style="color:#000;" class="w3-input w3-border w3-round"  type="text" ng-model = "formData.location"></input> <br>
+                <h3>Price</h3> <br>
+                <input style="color:#000;" class="w3-input w3-border w3-round" type="number" min = "1" ng-model = "formData.price" required></input> <br>
+                <h3>Capacity</h3> <br>
+                <input style="color:#000;" class="w3-input w3-border w3-round"  type="number" min = "1" ng-model = "formData.capacity" ng-pattern="/^(0|\-?[1-9][0-9]*)$/" required></input> <br>
+                <h3>Date</h3> <br>
+                <input style="color:#000;" class="w3-input w3-border w3-round" type="date" ng-model = "formData.date" required></input> <br>
+
+                <h3>StartTime</h3> <br>
+                <input style="color:#000;" type="time" class="w3-input w3-border w3-round" ng-model="formData.starttime" required><br>
+                <h3>EndTime</h3> <br>
+                <input style="color:#000;" type="time" class="w3-input w3-border w3-round" ng-model="formData.endtime" required><br>
+
+                <!-- <h3>Time</h3> <br> -->
+                <!-- <input style="color:#000;" class="w3-input w3-border w3-round" type="text" ng-model = "formData.timing" required></input> <br> -->
+                <!-- <h6>Format: start-time - end-time</h6> -->
+                <div style = "color:#ff0000">
+                 {{error}}
+                </div>
+                <input ng-disabled="form.userForm.$invalid" type="submit" ng-click = "goToCreateEvent()" class="btn btn-transparent" value="Create">
+            </form>
+            </div>
+   </section>
+<center>

@@ -1,0 +1,88 @@
+    
+
+        <section id="about" class="text-center">
+            <div  class="container">
+<!--                 <div class="row">
+ -->                
+                    <!-- section title -->
+                    <div class="title text-center wow fadeIn" data-wow-duration="1500ms" >
+                        <h2>OUR <span class="color">OFFERS</span></h2>
+                        <div class="border"></div>
+                    </div>
+                    <!-- /section title -->
+                    
+                <form ng-model="formData">
+                 
+
+                        <div ng-repeat="offer in offers track by $index" >  
+                          <input type="radio" ng-model="formData.chosen_offer" name="chosen_offer" value="{{offer._id}}">
+                          <label><h4>{{"Offer: "+offer.name + "  details: "+offer.details +" value: "+ offer.value}} </h4></label>
+                          <br>
+                        </div> <br><br>
+                        
+
+                </form>
+
+                  
+                    
+                </div>
+                        <!-- End row -->
+
+            </div>      <!-- End container -->
+        </section>   <!-- End section -->
+        
+        <!--
+        Start Main Features
+        ==================================== -->
+        <section id="main-features">
+            <div class="container">
+                <div class="row">
+                    
+                    <!-- features item -->
+                    <div id="features">
+                        <div class="item">
+                            
+                            <div class="features-item">
+                                
+                               
+
+                                
+                                <!-- features content -->
+                                
+                                <!-- /features content -->
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="item">
+                            <div class="features-item">
+                                                            
+                                <!-- features content -->
+                                
+                                <!-- /features content -->
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /features item -->
+                    
+                </div>      <!-- End row -->
+            </div>      <!-- End container -->
+        </section>   <!-- End section -->
+           
+
+        <a href="javascript:;" id="scrollUp">
+            <i class="fa fa-angle-up fa-2x"></i>
+        </a>
+        
+
+       
+        <!-- Main jQuery -->
+        
+         <!-- <script src="/bower_components/angular-route/angular-route.js"></script> -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+
+       
+
+    </body>
+</html>

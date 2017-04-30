@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+	<title> Rate a Business </title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+	<style>
+		body 		{ padding-top:80px; }
+	</style>
+</head>
+<body>
+<div class="container">
+
+<div class="col-sm-6 col-sm-offset-3">
+
+	<h1><span class="fa fa-sign-in"></span> Rate </h1>
+
+		<form action="/user/rate" method = "post">
+		<div class="form-group">
+			<label>Business ID</label>
+			<input type="text" class="form-control" name="business">
+			<br>
+			<br>
+		</div>
+
+
+
+		<div>
+			  <input type="radio" name="rating" value="1"> 1
+			  <input type="radio" name="rating" value="2"> 2
+			  <input type="radio" name="rating" value="3"> 3
+			  <input type="radio" name="rating" value="4"> 4
+			  <input type="radio" name="rating" value="5"> 5
+		</div>
+    <button type="submit" class="btn btn-warning btn-lg"> Rate </button>
+	</form>
+			<br>
+	<form>
+
+	</form>
+</div>
+</div>
+</body>
+</html>
