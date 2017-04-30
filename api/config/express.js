@@ -17,9 +17,11 @@ module.exports = function() {
     var app = express();
 
     app.use('*',function(req, res, next){
+
      
      var allowedOrigins = [null,'http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:3000', 'http://127.0.0.1:3000', 'https://www.facebook.com'];
     //   var allowedOrigins = [null,'http://54.187.92.64:8000', 'http://54.187.92.64:8000', 'http://54.187.92.64:3000', 'http://54.187.92.64:3000', 'https://www.facebook.com'];
+
 
       var origin = req.headers.origin;
       if(allowedOrigins.indexOf(origin) > -1){

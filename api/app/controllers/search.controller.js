@@ -14,6 +14,7 @@ SearchController = {
                 }
 
             });
+
     },
     search: function (req, res) {
         var formData = req.body;
@@ -42,6 +43,7 @@ SearchController = {
     }
 
 
+
 }
 
 //module that contains helper methods to the SearchController
@@ -57,6 +59,7 @@ helper = {
         var area = formData.area || "";
         var minRating = formData.minRating || "";
         var query = { public: 1 };
+
 
 
         //match any substring with name, description or area to search keyword
