@@ -64,7 +64,6 @@ app.controller('calendarController', function ($scope, Schedule, $routeParams, u
                 defaultView: 'month',
                 defaultDate: $scope.now,
                 navLinks: true, // can click day/week names to navigate views
-                editable: true,
                 eventLimit: true, // allow "more" link when too many events
                 events:$scope.events
                 // eventClick: function(event) {
