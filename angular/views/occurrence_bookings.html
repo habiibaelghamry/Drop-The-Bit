@@ -1,0 +1,39 @@
+
+<!--  <div ng-if = "type != 4">
+           <center>
+           <h3>Your are not authorized to view this page.</h3> </center>
+  </div> -->
+<!-- <div class="title text-center wow fadeIn" data-wow-duration="1500ms" ng-if = "type == 4">
+      <h2><span class="color"></span></h2>
+      <div class="border"></div>
+</div> -->
+<div ng-if = "type != 4">
+    <center>
+           <h1>Your are not authorized to view this page.</h1> <br><br><br><br><br><br><br><br>
+    </center>
+</div>
+
+<section id="blog-page" ng-if = "type == 4">
+
+     <div class="container">
+         <div class="row">
+
+           <div id="blog-posts" class="col-md-8 col-sm-8">
+           <h1>Bookings:<hr width="60%"></h1>
+               <div class="post-item">
+                       <div ng-repeat="booking in bookings ">
+                       
+                        <h4>Booked by : {{booking.booker_name}}</h4>
+                        <h4>Date   : {{booking.booking_date | date: 'medium' }}</h4>
+                        <h4>Count  : {{booking.count}}</h4>
+                        <h4>Charge : {{booking.charge}}</h4>
+                          {{error_message}}
+                          <button class="btn btn-transparent" ng-if = "type == 4" ng-click="deleteBooking(booking._id,booking.event_id)">CANCEL BOOKING</button>
+                          <hr width="60%">
+                       </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+        
+</section>

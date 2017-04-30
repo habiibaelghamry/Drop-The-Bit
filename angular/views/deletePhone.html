@@ -1,0 +1,19 @@
+<h3 style="color:#000;"> &nbsp;&nbsp; Delete Phone</h3>
+<hr>
+    <div class="modal-body">
+
+    		<div class="alert alert-danger" ng-if = "err">{{err}}</div>
+
+        <div ng-if = "phone != 0" class="form-group">
+            <label ng-if = "phone != 0" style="color:#000;">Are you sure you want to delete this phone number: {{phone}}?</label>
+        </div>
+
+        <div ng-if = "phone == 0" class="form-group">
+            <label ng-if = "phone == 0" style="color:#000;">You must have atleast one phone number</label>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button ng-if = "phone != 0" style="color:#000;" ng-click="yes(phone)" class="btn btn-primary">YES</button>
+        <a style="color:#000;" class="btn btn-warning" ng-click="no()">Cancel</a>
+    </div>

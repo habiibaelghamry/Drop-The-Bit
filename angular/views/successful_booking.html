@@ -1,0 +1,20 @@
+
+
+<section id="blog-page" >
+     <div class="container">
+         <div class="row">
+           <div id="blog-posts" class="col-md-8 col-sm-8">
+           <h1>Successful Booking:<hr width="60%"></h1>
+               <div class="post-item">
+                        <h3>Booked by : {{booking.booker_name}}</h3>
+                        <h3>Date   : {{booking.booking_date | date: 'medium' }}</h3>
+                        <h3>Count  : {{booking.count}}</h3>
+                        <h3>Charge : {{booking.charge}}</h3>
+                          {{error_message}}
+                          <hr width="60%">
+                 </div>
+               </div>
+             </div>
+           </div>
+         
+</section>

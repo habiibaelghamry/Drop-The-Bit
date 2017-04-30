@@ -1,0 +1,46 @@
+<div class="modal-header">
+    <h3 style="color:#000;">Edit Event</h3>
+</div>
+<form name="form.userForm" ng-submit="submitForm()" novalidate>
+    <div class="modal-body">
+
+        <div class="form-group">
+            <label style="color:#000;">Name</label>
+            <input type="text" class="form-control" ng-model="formData.name">
+        </div>
+
+
+        <div class="form-group">
+            <label style="color:#000;">Description</label>
+            <input type="text" class="form-control" ng-model="formData.description">
+        </div>
+
+        <div class="form-group">
+            <label style="color:#000;">Location</label>
+            <input type="text" class="form-control" ng-model="formData.location">
+        </div>
+         <div class="form-group">
+            <label style="color:#000;">Price</label>
+            <input type="number" class="form-control" ng-model="formData.price">
+        </div>
+      
+         <div class="form-group">
+            <label style="color:#000;">Date</label>
+            <input type="date" class="form-control" ng-model="formData.date">
+        </div>
+
+         <label style="color:#000;">StartTime</label><br>
+         <input type="time" class="form-control" ng-model="formData.starttime"><br>
+         <label style="color:#000;">EndTime</label><br>
+          <input type="time" class="form-control" ng-model="formData.endtime"><br>
+
+
+    </div>
+    <div class="modal-footer">
+        <div style = "color:#ff0000">
+            {{error}}
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="color:#000;">Edit</button>
+        <button class="btn btn-warning" ng-click="cancel()" style="color:#000;">Cancel</button>
+    </div>

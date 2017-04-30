@@ -1,0 +1,15 @@
+<h3 style="color:#000;"> &nbsp;&nbsp; Delete Offer</h3>
+<hr>
+    <div class="modal-body">
+
+    		<div class="alert alert-danger" ng-if = "err">{{err}}</div>
+
+        <div class="form-group">
+            <label style="color:#000;">Are you sure you want to delete this offer? This action is permanent.</label>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button style="color:#000;" ng-click="yes()" class="btn btn-primary">YES</button>
+        <a style="color:#000;" class="btn btn-warning" ng-click="no()">NO</a>
+    </div>

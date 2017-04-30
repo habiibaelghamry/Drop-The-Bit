@@ -1,0 +1,53 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+<head>
+	<title>Node Authentication</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<style>
+		body 		{ padding-top:80px; word-wrap:break-word; }
+	</style>
+</head>
+<body>
+	<% if(!(user && user.user_type == 3)) { %>
+	<div class="page-header text-center">
+		<h1><span class="fa fa-anchor"></span>YOU ARE NOT AUTTHORIZED TO ACCESS THIS PAGE!</h1>
+		
+		<a href="/" class="btn btn-default btn-sm">HOME</a>
+	</div>
+	<% } else { %>
+	
+<div class="container">
+
+	<div class="page-header text-center">
+		<h1><span class="fa fa-anchor"></span> Admin Profile Page</h1>
+		
+		<a href="/auth/logout" class="btn btn-default btn-sm">Logout</a>
+	</div>
+
+	<div class="row">
+	<p><h4>Buinesses Requested To Be Deleted</h4></p>
+	 
+            <div class="row">
+                <% for(var i=0; i< requests.length; i++){%>
+                    
+                      <h4>  <%= requests[i].name %></h4>
+                      <a href="/admin/deleteBusiness/<%= requests[i]._id %>" class="btn btn-default btn-sm">DELETE</a>
+                       
+                    
+                <% } %>
+            </div>
+        
+      </div>
+	
+
+	<p>Go Back Home</p>
+	<a href="/auth/profile" class="btn btn-default btn-sm">home</a>
+		
+		
+
+
+<% } %>
+</body>
+</html>

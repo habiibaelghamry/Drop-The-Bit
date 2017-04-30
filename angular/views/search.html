@@ -1,0 +1,355 @@
+<div class="title text-center wow fadeIn">
+    <h2>All <span class="color">Businesses</span></h2>
+    <div class="border"></div>
+</div>
+
+<div class="w3-sidebar w3-bar-block" style="width:20%;right:0; background-color: inherit;">
+    <center class="w3-margin-bottom">
+        <!--search bar-->
+
+        <form>
+            <input type="text" class="w3-input w3-border-green w3-round-large" placeholder="Search..." autocomplete="on" name="seach"
+                ng-model="keyword">
+            <button type="submit" title="Search" id="search-submit">
+        <i class="fa fa-search"></i></button>
+            <!-- search bar end -->
+            <!--sort by -->
+            <br>
+            <div class="form-group">
+                <label for="sortOptions">Sort by: </label> <br>
+                <div class="styled-select green rounded">
+                    <select id="sortOptions" ng-model="sortBy">
+                    <option value="" selected> None </option>
+                    <option value="average_rating">Rating </option>
+                    <option value="area">Area</option>
+                    <option value="name">Name</option>
+                </select>
+                </div>
+
+            </div>
+            <!--sort by end -->
+
+
+            <label ng-show="sortBy != '' && sortBy != 'none'" for="checkbox">Sort ascending: </label>
+            <input ng-show="sortBy != '' && sortBy != 'none'" id="checkbox" type="checkbox" ng-click="check()" ng-model="checked">
+
+            <!--category start -->
+            <div class="form-group">
+                <label for="category">Category: </label> <br>
+                <div class="styled-select green rounded">
+                    <select width="20" id="category" ng-model="cat">
+                    <option selected value="all">All</option>
+                    <option value="thrill"> Thrill </option>
+                    <option value="escape">Escape</option>
+                    <option value="outlet">Outlet</option>
+             </select>
+                </div>
+            </div>
+            <!--category end -->
+
+            <!--area start-->
+            <div class="form-group">
+                <label for="area">Area:</label> <br>
+                <div class="styled-select green rounded">
+                    <select width="20" id="area" ng-model="area">
+                    <option value="All" selected = "selected"> All</option>
+                    <option ng-repeat="ar in areas" value="{{ar}}">{{ar}}</option>
+            </select>
+                </div>
+            </div>
+            <!--area end -->
+            <!--min rating -->
+            <div class="form-group">
+                <label for="min-rating">Minimum rating: </label> <br>
+                <input class="w3-border-green w3-round-large" id="min-rating" type="number" min="0.0" max="5.0" step="0.1" ng-model="minRating">
+            </div>
+            <!--min rating end -->
+        </form>
+        <!-- AddToAny BEGIN -->
+        <!--<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+            <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+            <a class="a2a_button_facebook"></a>
+            <a class="a2a_button_twitter"></a>
+            <a class="a2a_button_google_plus"></a>
+        </div>
+        <script async src="https://static.addtoany.com/menu/page.js"></script>-->
+        <!-- AddToAny END -->
+
+    </center>
+</div>
+
+
+
+
+<div class="container">
+    <div class="row" ng-repeat="rows in chunkedBusinesses">
+        <div class="col-md-3 col-sm-3 w3-margin" ng-repeat="business in rows | searchFilter: cat:minRating:area | filter: keyword | orderBy: sortBy : direction">
+
+            <div class="flip-container">
+                <div class="flipper">
+                    <div class="front img-container">
+                        <img ng-if="business.profilePicture" ng-src="http://{{ip}}:3000/photo/{{business.profilePicture}}"
+                        <img ng-if="!business.profilePicture" ng-src="http://{{ip}}:3000/photo/avatar.png"
+
+                        class="centered-and-cropped">
+                        <footer style="width: inherit" class="w3-container w3-display-bottommiddle w3-green">
+                            <h4 align="center">{{business.name}}</h4>
+                        </footer>
+                    </div>
+                    <div class="back" style="overflow: hidden">
+
+                        <img ng-src="http://{{ip}}:3000/photo/{{business.profilePicture}}" class="centered-and-cropped img-flipped">
+                        <div class="dark-text w3-display-left w3-container">
+                            <b class="color">Description: </b>
+                            <p> {{business.description}} </p> <br>
+                            <b class="color">Address </b> {{business.address}} <br>
+                            <b class="color">Area: </b> {{business.area}} <br>
+                            <b class="color">Average rating: </b> {{business.average_rating}} <br>
+                            <b class="color">Category: </b>
+                            <span ng-repeat="category in business.category"> {{category}}</span>
+                            <br>
+                            <a class="w3-button w3-green w3-margin-top" href="/#!/business/{{business.name}}">View page >> </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+</div>
+
+<style>
+    .dark-text {
+        color: black
+    }
+    flip-container {
+        perspective: 1000px;
+    }
+    /* flip the pane when hovered */
+
+    .flip-container:hover .flipper,
+    .flip-container.hover .flipper {
+        transform: rotateY(180deg);
+    }
+
+    .flip-container,
+    .front,
+    .back {
+        width: 100%;
+        height: 50vh;
+    }
+    /* flip speed goes here */
+
+    .flipper {
+        transition: 0.6s;
+        transform-style: preserve-3d;
+        position: relative;
+    }
+    /* hide back of pane during swap */
+
+    .front,
+    .back {
+        backface-visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    /* front pane, placed above back */
+
+    .front {
+        z-index: 2;
+        /* for firefox 31 */
+        transform: rotateY(0deg);
+    }
+    /* back, initially hidden pane */
+
+    .back {
+        transform: rotateY(180deg);
+    }
+
+    .centered-and-cropped {
+        position: absolute;
+        left: -1000%;
+        right: -1000%;
+        top: -1000%;
+        bottom: -1000%;
+        margin: auto;
+        min-height: 100%;
+        min-width: 100%;
+    }
+
+    .img-container {
+        overflow: hidden;
+        position: relative;
+    }
+
+    .img-flipped {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+        filter: blur(5px) grayscale(100%);
+        /* blurring*/
+        /*-webkit-filter: blur(5px);*/
+        /* Safari 6.0 - 9.0 */
+        /*filter: blur(5px);*/
+    }
+    /*Select element*/
+
+    input,
+    option {
+        color: #000;
+        outline: none;
+    }
+
+    .styled-select {
+        background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+        height: 29px;
+        overflow: hidden;
+        width: 240px;
+    }
+
+    .styled-select select {
+        background: transparent;
+        border: none;
+        font-size: 14px;
+        height: 29px;
+        padding: 5px;
+        /* If you add too much padding here, the options won't show in IE */
+        width: 268px;
+    }
+
+    .styled-select.slate {
+        background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+        height: 34px;
+        width: 240px;
+    }
+
+    .styled-select.slate select {
+        border: 1px solid #ccc;
+        font-size: 16px;
+        height: 34px;
+        width: 268px;
+    }
+    /* -------------------- Rounded Corners */
+
+    .rounded {
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+    }
+
+    .semi-square {
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
+    /* -------------------- Colors: Background */
+
+    .slate {
+        background-color: #ddd;
+    }
+
+    .green {
+        background-color: #4bb056;
+    }
+
+    .blue {
+        background-color: #3b8ec2;
+    }
+
+    .yellow {
+        background-color: #eec111;
+    }
+
+    .black {
+        background-color: #000;
+    }
+    /* -------------------- Colors: Text */
+
+    .slate select {
+        color: #000;
+    }
+
+    .green select {
+        color: #fff;
+    }
+
+    .blue select {
+        color: #fff;
+    }
+
+    .yellow select {
+        color: #000;
+    }
+
+    .black select {
+        color: #fff;
+    }
+    /* -------------------- Select Box Styles: danielneumann.com Method */
+    /* -------------------- Source: http://danielneumann.com/blog/how-to-style-dropdown-with-css-only/ */
+
+    .mainselection select {
+        border: 0;
+        color: #EEE;
+        background: transparent;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 2px 10px;
+        width: inherit;
+        *width: inherit;
+        *background: #58B14C;
+        -webkit-appearance: none;
+    }
+
+    .mainselection {
+        overflow: hidden;
+        width: inherit;
+        -moz-border-radius: 9px 9px 9px 9px;
+        -webkit-border-radius: 9px 9px 9px 9px;
+        border-radius: 9px 9px 9px 9px;
+        box-shadow: 1px 1px 11px #330033;
+        background: #58B14C url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 319px center;
+    }
+    /* -------------------- Select Box Styles: stackoverflow.com Method */
+    /* -------------------- Source: http://stackoverflow.com/a/5809186 */
+
+    select#soflow,
+    select#soflow-color {
+        -webkit-appearance: button;
+        -webkit-border-radius: 2px;
+        -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+        -webkit-padding-end: 20px;
+        -webkit-padding-start: 2px;
+        -webkit-user-select: none;
+        background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+        background-position: 97% center;
+        background-repeat: no-repeat;
+        border: 1px solid #AAA;
+        color: #555;
+        font-size: inherit;
+        margin: 20px;
+        overflow: hidden;
+        padding: 5px 10px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 300px;
+    }
+
+    select#soflow-color {
+        color: #fff;
+        background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#779126, #779126 40%, #779126);
+        background-color: #779126;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+        padding-left: 15px;
+    }
+</style>

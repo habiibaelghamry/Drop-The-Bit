@@ -1,0 +1,9 @@
+  .image2 {
+/*    width: 20px;
+    height: 20px;*/
+    opacity: 1;
+    display: block;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }

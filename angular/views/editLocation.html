@@ -1,0 +1,31 @@
+<center>
+       <section id = "blog-page">
+         <div ng-if = "type != 4">
+           <center>
+           <h3>Your are not authorized to view this page.</h3> </center>
+         </div>
+            <div ng-if = "type == 4" style="max-width: 400px;" ng-app = "fasa7ny" ng-controller = "editBusinessController" >
+                <form ng-model = "formData">
+
+
+                  <h3>Your Location</h3> <br>
+
+                <div id="googleMap" style="height: 400px; padding: 12px 16px" ng-init = "initMap()"></div>
+
+
+                <div style = "color:#ff0000">
+                    {{error}}
+                </div>
+
+                <button type="submit" ng-click = "goToLocEdit()" class="btn btn-transparent">Edit Information</button>
+
+
+            </form>
+            </div>
+
+            <script>
+
+            </script>
+
+   </section>
+<center>

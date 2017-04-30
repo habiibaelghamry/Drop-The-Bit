@@ -1,0 +1,597 @@
+
+<link rel="stylesheet" href="css/reviews.css">
+<div ng-show = "type != 4 && business.public == 0">
+  <center>
+    <h2>You are not authorised to view this page.</h2>
+  </center>
+</div>
+
+<div ng-show = "business.public == 1 || type == 4">
+  <div ng-if = "type == 4" class="w3-sidebar w3-bar-block w3-card-2 w3-animate-right" style="display:none;right:0;background-color:#2B2C30;" id="rightMenu">
+    <button ng-if = "type == 4" onclick="closeRightMenu()" class=" w3-button w3-large" style="background-color:#2B2C30;" >&times;</button>
+    <center>
+      <input style="width:200px" ng-if = "type == 4 && business.delete == 0" type="submit" value="Request Removal" ng-click = "remove()" class="btn btn-transparent">
+      <input style="width:200px" ng-if = "type == 4 && business.public == 0" type="submit" value="Make Page Public" ng-click = "public()" class="btn btn-transparent">
+      <input style="width:200px" ng-if = "type == 4" type="submit" value="Create a Facility" ng-click = "createFacility(business._id)" class="btn btn-transparent">
+      <input style="width:200px" ng-if = "type == 4" type="submit" value="Create One-Time Event" ng-click = "createOneEvent(business._id)" class="btn btn-transparent">
+      <input style="width:200px" ng-if = "type == 4" type="submit" value="Create an Offer" ng-click = "createOffer(business._id)" class="btn btn-transparent">
+      <form ng-click = "businessEdit()">
+        <input style="width:200px" ng-if = "type == 4" type="submit" value="Edit Information" class="btn btn-transparent">
+      </form>
+      <form ng-click = "businessEditLocation()">
+        <input style="width:200px" ng-if = "type == 4" type="submit" value="Edit location" class="btn btn-transparent">
+      </form>
+      <form ng-click = "viewStats()">
+        <input style="width:200px" ng-if = "type == 4" type="submit" value="Statistics" class="btn btn-transparent">
+      </form>
+    </center>
+  </div>
+
+
+  <section id="blog-banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center uploadPic">
+          <form id="hiddenForm" onsubmit="javascript: return false;">
+                    <!-- edit profile pic !-->
+            <div class="image-upload" style="float: left: 0; right: 0; margin: 0 auto;" >
+              <label for="file-input">
+                <div class=" image-cropper" >
+                  <img ng-if = "business.profilePicture" ng-src='http://{{ip}}:3000/photo/{{business.profilePicture}}' alt="Avatar" id = "profilepic" class="image" style="width:100%;">
+                  <img ng-if = "!business.profilePicture" ng-src='../img/avatar.png' alt="Avatar" id = "profilepic" class="image" style="width:100%;">
+                  <div class="middle">
+                    <div ng-if = "type == 4" style="font-size: 20px; color:lightgrey;"> Change profile picture</div>
+                  </div>
+                </div>
+              </label>
+              <input ng-if = "type == 4" id="file-input" type="file" file-model="formData.img"/>
+              <br>
+              <button ng-if = "type == 4" class="btn btn-booking" id = "uploadButton" ng-click = "changeImage(user._id)" style = "display:block; margin: 0 auto; display: none;"> Upload  </button>
+
+                        <!-- full name & email display !-->
+              <div class="blog-title" style="margin: 0 auto;">
+                <h1> {{ business.name }}
+                  <span>
+                    <span style="font-size:140%;color:#90EE90;">&bigstar;</span>
+                    <span style="font-size:70%;color:#90EE90;">{{ avgRate | number : 2}}
+                    <span style="font-size:40%;#90EE90 ;"> / 5</span></span>
+                  </span>
+                </h1> <br>
+                  {{sublength}} Subscribers
+              </div>
+            </div>
+          </form>
+        </div>     <!-- End col-lg-12 -->
+      </div>      <!-- End row -->
+    </div>       <!-- End container -->
+  </section>    <!-- End Section -->
+
+<!-- </div> -->
+  <section id="blog-page">
+    <div class="container">
+      <div class="row">
+
+        <div id="blog-posts" class="col-md-8 col-sm-8">
+          <div class="post-item">
+            <article class="entry wow fadeInDown"  data-wow-duration="1000ms" data-wow-delay="300ms" ng-show = "business.public == 1 || type == 4">
+
+              <div ng-if="imagelength > 0" id="slides_control">
+                <carousel interval="myInterval">
+                  <slide ng-repeat="slide in slides">
+                    <div class="crop">
+                      <img style="margin:auto;" ng-src="http://{{ip}}:3000/photo/{{slide}}">
+                    </div>
+                    <div style="text-align:left">
+                    &nbsp;&nbsp;  <button  ng-if = "type == 4" class="btn btn-transparent" ng-click="deleteImage(slide)"> Delete Image </button>
+                    </div>
+                    <div class="carousel-caption"> </div>
+                  </slide>
+                </carousel>
+                <br><br><br>
+              </div>
+
+
+&nbsp;&nbsp;  <button ng-if = "type == 4" class="btn btn-transparent" ng-click="addImage()" ng-disabled="imagelength == 4"> &nbsp;&nbsp;Add Image &nbsp;&nbsp;</button>
+
+              <hr ng-show = "business.public == 1 || type == 4" width="40%">
+              <div class="post-excerpt">
+                <p>{{ business.description }}</p>
+
+              </div>
+
+            </article>
+                          <!-- End Single Post -->
+
+          </div>
+
+
+        </div>
+
+                    <!-- Widget Section -->
+        <div id="right-sidebar" class="col-md-4 col-sm-4">
+
+          <div style="background-color:#2B2C30;">
+            <button class="w3-button w3-xlarge w3-right" style="background-color:#2B2C30;" onclick="openRightMenu()" ng-if = "type == 4">Options &#9776;</button>
+            <div class="w3-container">
+            </div>
+           <!-- Single Widget -->
+            <aside class="widget wow fadeInDown">
+              <div  class="widget-content">
+                <div>
+                  <ul class="rating">
+                    <li ng-repeat="n in [].constructor(maxRating) track by $index" ng-if = "type == 1">
+                      <span ng-click="rateBy($index+1, business._id)" ng-show="ratedBy > $index" class="filled" ng-if = "type == 1">&#9733;</span>
+                      <span ng-click="rateBy($index+1, business._id)" ng-show="ratedBy <= $index">&#9733;</span>
+                    </li>
+                  </ul>
+                </div>
+                <br>
+
+                <input ng-if = "type == 1" type="submit" value="{{sub}}" ng-click = "check == 1 ? unsubscribe(business._id) : subscribe(business._id)" class="btn btn-transparent">
+              </div>
+
+
+
+            </aside>
+
+
+
+
+            <br>
+            <hr ng-show = "business.public == 1 || type == 4">
+            <br>
+            <br>
+
+                        <!-- section title -->
+            <div ng-show = "business.public == 1 || type == 4"  class="title text-center wow fadeIn" data-wow-duration="500ms">
+              <h2>Business <span class="color">Details</span></h2>
+              <div class="border"></div>
+            </div>
+                        <!-- /section title -->
+            <div>
+
+              <div ng-show = "business.public == 1 || type == 4" class = "post-item">
+                <article class = "entry wow fadeInDown" data-wow-duration = "1000ms" data-wow-delay = "300ms">
+                  <div class = "post-excerpt">
+                    <div style="padding-left: 23px;">
+                  		<a style="font-size: 20px; color:white; margin-top: 2px; margin-bottom: 2px; opacity: 0">
+                  			no data
+                  		</a>
+                  	</div>
+
+                  	<div style="padding-left: 25px;">
+                      <div ng-if = "business.area">
+                    		<a style="font-size: 20px; color:white; margin-top: 4px; margin-bottom: 4px;">
+                          <i class = "fa fa-location-arrow" aria-hidder="true" style="color: #6cb670"></i>
+                    			&nbsp;&nbsp;{{ business.area }}
+                    		</a>
+                      </div>
+                  	</div>
+
+                    <div style="padding-left: 25px;">
+                      <div ng-if = "business.address">
+                    		<a style="font-size: 20px; color:white; margin-top: 4px; margin-bottom: 4px;">
+                          <i class = "fa fa-map-marker" aria-hidder="true" style="color: #6cb670"></i>
+                    			 &nbsp;&nbsp;{{ business.address }}
+                    		</a>
+                      </div>
+                  	</div>
+
+
+                              	<!-- <img src="../img/user_profile/phone-icon-3.png" alt="phone_icon_profile" class="image2" align="left" style = "padding-top: 6px"> -->
+                  	<div style="padding-left: 25px;">
+                      <div ng-if = "phones && phones.length>0">
+                        <a style="font-size: 20px; color:white; margin-top: 4px; margin-bottom: 4px;">
+                          <i class = "fa fa-phone" aria-hidder="true" style="color: #6cb670"></i>
+                        </a>
+                        <div style="display:inline-block"  ng-repeat = "phone in phones">
+                      		<a  style="font-size: 20px; color:white; margin-top: 4px; margin-bottom: 4px;">
+                      			&nbsp;&nbsp;{{ phone }}
+                            <a ng-if = "type == 4" ng-click="phonelength == 1 ? deletePhone(0):deletePhone(phone)">
+                              <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                      		</a>
+                        </div>
+                      </div>
+                  	</div>
+
+                  	<div style="padding-left: 25px;">
+                      <div ng-if = "business.email">
+                    		<a style="font-size: 20px; color:white; margin-top: 4px; margin-bottom: 4px;">
+                          <i class = "fa fa-envelope-o" aria-hidder="true"style="color: #6cb670"></i>
+                    			  &nbsp;&nbsp; {{ business.email }}
+                    		</a>
+                      </div>
+                  	</div>
+
+                  	<div style="padding-left: 25px;">
+                      <div ng-if = "methods && methods.length>0">
+                        <a style="font-size: 20px; color:white; margin-top: 4px; margin-bottom: 4px;">
+                          <i class = "fa fa-money" aria-hidder="true" style="color: #6cb670"></i>
+                        </a>
+                        <div style="display:inline-block" ng-if = "methods.length>0" ng-repeat = "method in methods">
+                      		<a  style="font-size: 20px; color:white; margin-top: 4px; margin-bottom: 4px;">
+                      			&nbsp;&nbsp;{{ method }}
+                            <a ng-if = "type == 4" ng-click="paymentlength == 1 ? deletePaymentMethod(0):deletePaymentMethod(method)">
+                              <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                          </a>
+                        </div>
+                      </div>
+                  	</div>
+
+                    <div style="padding-left: 25px;">
+                      <div ng-if = "categories.length>0">
+                        <a style="font-size: 20px; color:white; margin-top: 4px; margin-bottom: 4px;">
+                          <i class = "fa fa-tags" aria-hidder="true" style="color: #6cb670"></i>
+                        </a>
+                        <div style="display:inline-block"  ng-repeat = "category in categories">
+                          <a  style="font-size: 20px; color:white; margin-top: 4px; margin-bottom: 4px;">
+                            &nbsp;&nbsp;{{ category }}
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                  	<div style="padding-left: 23px;">
+                  		<a style="font-size: 20px; color:white; margin-top: 2px; margin-bottom: 2px; opacity: 0">
+                  			no data
+                  		</a>
+                  	</div>
+
+                  </div>
+
+
+
+                </div>
+                <div ng-controller = "businessController">
+                  <div id="googleMap2" style="height: 200px; padding: 12px 16px" ng-init = "initMap()"></div>
+                </div>
+              </article>
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+              <!-- <li>Area: {{ business.area }}</li>
+              <li>Address: {{ business.address }}</li>
+              <li>Phone Numbers: </li> -->
+              <!-- <li ng-repeat = "phone in phones"> {{ phone }} <button ng-click="phonelength == 1 ? deletePhone(0):deletePhone(phone)" style="color:#000;"> delete <button> </li> -->
+                <!-- <li ng-if = "phones.length>0" ng-repeat = "phone in phones"> {{ phone }} -->
+                  <!-- <a ng-if = "type == 4" ng-click="phonelength == 1 ? deletePhone(0):deletePhone(phone)"> -->
+                    <!-- <span class="glyphicon glyphicon-trash"></span> </a> </li> -->
+              <!-- <li>Email: {{ business.email }}</li>
+              <li>Payment Methods: </li>
+                <li ng-if = "methods.length>0" ng-repeat = "method in methods"> {{ method }}
+                  <a ng-if = "type == 4" ng-click="paymentlength == 1 ? deletePaymentMethod(0):deletePaymentMethod(method)">
+                  <span class="glyphicon glyphicon-trash"></span> </a> </li>
+ -->
+
+
+
+
+
+
+
+
+
+
+
+<div class="w3-container">
+
+
+
+<button style="width:250px" ng-if="facilitylength" onclick="myFunction('Demo1')" class="btn btn-transparent" >Check Our Facilities</button>
+
+<div id="Demo1" class="w3-hide w3-container">
+<br>
+  <div id="primary" class="sidebar-right">
+    <div class="container group">
+        <div class="row">
+            <!-- START CONTENT -->
+            <div ng-repeat = "facility in facilities" id="content-blog" class="span9 content group">
+
+                <div style="background-color:#2B2C30;" class="post type-post status-publish format-video sticky hentry category-web-design hentry-post group blog-small">
+                    <!-- post featured & title -->
+
+                    <div style="background-color:#2B2C30;" class="thumbnail">
+                        <div style="background-color:#2B2C30;" class="row">
+                            <!-- post featured -->
+                            <div class="image-wrap span4">
+                              <hr>
+                                <img style="width: auto\9;height: auto;max-width: 100%; vertical-align: middle;border: 0; -ms-interpolation-mode: bicubic;" width="365" height="340"
+                                 src="http://{{ip}}:3000/photo/{{facility.image}}" class="attachment-blog_small wp-post-image" alt="3" />
+                                 <hr>
+                                 <center>
+                                  <button ng-if = "type == 4" ng-controller = "facilityController" class="btn btn-transparent" ng-click = "goToEditFacility(facility._id)"> Edit Facility </button>
+                                 <button ng-if = "type == 4" ng-controller = "facilityController" class="btn btn-transparent" ng-click = "deleteFacility(facility._id)"> Delete Facility </button>
+                                 <button ng-if = "type == 4" ng-controller = "facilityController" class="btn btn-transparent" ng-click = "addDaily(facility._id,facility.description,facility.capacity, facility.name)">&nbsp;&nbsp; Add Event </button>
+                                 <button ng-controller = "facilityController" class="btn btn-transparent" ng-click = "viewEvents(facility._id)">&nbsp;&nbsp;View Events &nbsp;</button>
+                                 <hr style="border: 0.5px solid #90EE90">
+                               </center>
+                            </div>
+
+                            <!-- post title -->
+                            <div class="span5">
+                                <h2 class="post-title">
+                                    <h3>{{facility.name}}</h3>
+                                </h2>
+                                <hr width="60%">
+                                <div class="the-content">
+                                    <p><h4>Capacity</h4> {{facility.capacity}} </p>
+                                    <hr width="60%">
+                                    <p> {{facility.description}}</p>
+
+                                </div>
+                            </div>
+
+                            <div class="clear"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <button ng-controller="businessController" ng-if="facilitylength" class="btn btn-transparent w3-green"  ng-click="bookFacility()" >Book Now!</button>
+    <hr>
+</div><br>
+
+<!-- </div> -->
+<button style="width:250px" ng-if="eventlength" onclick="myFunction('Demo2')" class="btn btn-transparent" >Check Our Events&nbsp;&nbsp;&nbsp;&nbsp;</button><br>
+<div id="Demo2" class="w3-hide w3-container">
+<br>
+  <div id="primary" class="sidebar-right">
+    <div class="container group">
+        <div class="row">
+            <!-- START CONTENT -->
+            <div ng-repeat = "event in events" id="content-blog" class="span9 content group">
+
+                <div style="background-color:#2B2C30;" class="post type-post status-publish format-video sticky hentry category-web-design hentry-post group blog-small">
+                    <!-- post featured & titfle -->
+
+                    <div style="background-color:#2B2C30;" class="thumbnail">
+                        <div style="background-color:#2B2C30;" class="row">
+                            <!-- post featured -->
+                            <div class="image-wrap span4">
+                                 <center><button class="btn btn-transparent" ng-click = "getEvent(event._id)"> View Event </button>
+                                 <!-- <hr style="border: 0.5px solid #90EE90"> -->
+                                 <center>
+                            </div>
+
+                            <!-- post title -->
+                            <div class="span5">
+                                <h2 class="post-title">
+                                    <h3>{{event.name}}</h3>
+                                </h2>
+                                <hr width="60%">
+                                <div class="the-content">
+                                    <p><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> {{event.location}} </p>
+                                    <!-- <hr width="60%"> -->
+                                    <!-- <p> {{event.description}}</p> -->
+
+                                </div>
+                            </div>
+
+                            <div class="clear"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    </ul>
+</div>
+
+
+
+
+
+
+<button style="width:250px" ng-show = "business.public == 1 || type == 4" onclick="myFunction('Demo3')" class="btn btn-transparent" >Check Our Offers&nbsp;&nbsp;&nbsp;&nbsp;</button>
+<div id="Demo3" ng-controller="ViewOffersController" class="w3-hide w3-container">
+<br>
+  <div id="primary" class="sidebar-right">
+    <div class="container group">
+        <div class="row">
+            <!-- START CONTENT -->
+            <div ng-repeat = "offer in offers" id="content-blog" class="span9 content group">
+                <div style="background-color:#2B2C30;" class="post type-post status-publish format-video sticky hentry category-web-design hentry-post group blog-small">
+                    <!-- post featured & title -->
+
+                    <div style="background-color:#2B2C30;" class="thumbnail">
+                        <div style="background-color:#2B2C30;" class="row">
+                            <!-- post featured -->
+                            <div class="image-wrap span4">
+                              <hr ng-if="offer.image">
+                                <img ng-if="offer.image" class="img-center"  width="300" height="260"
+                                 ng-src="http://{{ip}}:3000/photo/{{offer.image}}" class="attachment-blog_small wp-post-image" alt="3" />
+                                 <hr ng-if="offer.image">
+                                 <center>
+                                  <button ng-if = "type == 4"  class="btn btn-transparent" ng-controller = "EditOffersController" ng-click = "editOffer(offer._id,offer.type)" > Edit Offer </button>
+                                 <button  ng-if = "type == 4"  class="btn btn-transparent" ng-controller = "DeleteOffersController" ng-click = "deleteOffer(offer._id)"> Delete Offer </button>
+                                   <hr style="border: 0.5px solid #90EE90">
+                                 <center>
+                            </div>
+
+                            <!-- post title -->
+                            <div class="span5">
+                                <h2 class="post-title">
+                                    <h3>{{offer.name}}</h3>
+                                </h2>
+                                <div class="the-content">
+                                    <hr width="60%"> Details:
+                                    <p> {{offer.details}}</p>
+
+                                </div>
+                                <div class="the-content">
+                                    <hr width="60%"> Value:
+                                    <p> {{offer.value}}</p>
+
+                                </div>
+                            </div>
+
+                            <div class="clear"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+</div>
+
+<br>
+<button style="width:250px" ng-click="schedule(business.name)" class="btn btn-transparent"> Check The Schedule &nbsp; </button>
+<br>
+
+</div>
+
+
+            </div>       <!-- End container -->
+        </section>    <!-- End Section -->
+
+<!--=========================================-->
+    <!--REVIEWS SECTION -->
+<!--=========================================-->
+
+<section >
+    <!--start reviews form -->
+    <h1 class="text-center">Reviews </h1>
+    <h5 style="text-align: center" ng-show="!business.reviews.length">No reviews to show. </h5>
+    <div class="container">
+        <div class="row">
+            <!-- Review section -->
+            <div class="comments-container">
+
+                <ul id="comments-list" class="comments-list">
+                    <li ng-show="business.reviews.length" ng-repeat="review in business.reviews track by $index">
+                        <div class="comment-main-level">
+                            <!-- Avatar -->
+                            <div class="comment-avatar"><img ng-src="http://{{ip}}:3000/photo/{{review.user.image}}" alt=""></div>
+
+                            <div class="comment-box">
+
+                                <div class="comment-head">
+                                    <h6 class="comment-name">{{review.user.name}}</h6>
+
+                                    <span style="margin-top: 10px">{{review.timestamp | date: 'd MMM, yy h:mm a '}}
+
+                                        <i ng-if="type == 3 || (type == 1 && review.user.id == user._id)" ng-click="deleteReview(review)" class="delete glyphicon glyphicon-trash"></i></span>
+
+                                    <i ng-disabled="type != 1" ng-click="upvote(review)" class="vote fa fa-chevron-up"></i>                                    <br>
+                                    <i class="fa">{{review.votes}}</i> <br>
+                                    <i ng-disabled="type != 1" ng-click="downvote(review)" class="vote fa fa-chevron-down"></i>
+
+                                </div>
+                                <div class="comment-content">
+                                    {{review.review}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="comments-list reply-list">
+                            <li ng-repeat="reply in review.replies">
+
+                                <div ng-if="reply.authorType == 'user' " class="comment-avatar"><img ng-src="http://{{ip}}:3000/photo/{{reply.user.image}}" alt=""></div>
+                                <div ng-if="reply.authorType == 'business'" class="comment-avatar"><img ng-src="http://{{ip}}:3000/photo/{{business.profilePicture}}" alt=""></div>
+
+                                <div class="comment-box">
+                                    <div class="comment-head">
+                                        <h6 ng-if="reply.authorType == 'user'" class="comment-name">{{reply.user.name}}</h6>
+                                        <h6 ng-if="reply.authorType == 'business'" class="comment-name by-author"> {{business.name}}</h6>
+                                        <span style="margin-top: 10px">{{reply.timestamp | date: 'd MMM, yy h:mm a ' }}
+                                            <i ng-if="type == 3 || (type == 1 && reply.user.id == user._id) || (type == 4 && reply.authorType == 'business') " ng-click="deleteReply(review, reply)" class="delete glyphicon glyphicon-trash"></i></span>
+
+
+                                    </div>
+                                    <div class="comment-content">
+                                        {{reply.reply}}
+                                    </div>
+                                </div>
+                            </li>
+                            <!--add reply form -->
+                            <li ng-show="type == 1 || type == 4">
+
+                                <div ng-if="type == 1" class="comment-avatar"><img ng-src="http://{{ip}}:3000/photo/{{user.profilePic}}" alt=""></div>
+                                <div ng-if="type == 4" class="comment-avatar"><img ng-src="http://{{ip}}:3000/photo/{{business.profilePicture}}" alt=""></div>
+
+                                <div class="comment-box">
+                                    <div class="comment-head">
+                                        <h6 ng-show="type == 1" class="comment-name"> {{user.name}}: </h6>
+                                        <h6 ng-show="type == 4" class="comment-name"> {{business.name}}: </h6>
+
+
+                                    </div>
+                                    <div class="comment-content">
+                                        <ng-form name="replyForm">
+                                            <input ng-model="replyBody" class="w3-input w3-border-green" type="text" placeholder="Add reply.." required>
+                                            <br>
+                                            <button ng-click="addReply(review._id, replyBody)" class="w3-button w3-green" type="submit">Post</button>
+                                        </ng-form>
+
+
+                                    </div>
+                                </div>
+                            </li>
+                            <!--end add reply form -->
+                        </ul>
+                    </li>
+                    <!--add review form -->
+                    <li ng-show="type == 1">
+                        <div class="comment-main-level">
+                            <!-- Avatar -->
+
+                            <div class="comment-avatar"><img ng-src="http://{{ip}}:3000/photo/{{user.profilePic}}" alt=""></div>
+                            <!-- Contenedor del Comentario -->
+                            <div class="comment-box">
+                                <div class="comment-head">
+                                    <h6 ng-if="type == 1" class="comment-name"> {{user.name}}: </h6>
+                                    <h6 ng-if="type == 4" class="comment-name"> {{business.name}}: </h6>
+
+                                </div>
+                                <div class="comment-content">
+
+                                    <input ng-model="reviewBody" class="w3-input w3-border-green" type="text" placeholder="Add review.." required>
+                                    <br>
+                                    <button ng-click="addReview()" class="w3-button w3-green" type="submit">Post</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!--add review form end -->
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+        <div class="social-icon">
+          <ul>
+              <li ng-if="business.facebookURL"><a ng-if="business.facebookURL" href="{{ business.facebookURL}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+              <li ng-if="business.twitterURL"><a ng-if="business.twitterURL" href="{{ business.twitterURL}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+              <li ng-if="business.youtubeURL"><a ng-if="business.youtubeURL" href="{{ business.youtubeURL}}" target="_blank"><i class="fa fa-youtube"></i></a></li>
+          </ul>
+        </div>
+</div>

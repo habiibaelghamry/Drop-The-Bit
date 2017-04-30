@@ -1,0 +1,30 @@
+
+
+<div class="container">
+
+
+
+	<h1 style = "color : #6cb670; padding: 12px 16px "><span class="fa fa-bell-o"></span> Notifications:</h1>
+
+	<!-- show any messages that come back with authentication -->
+	<center>
+	<h3 ng-if = "err">{{err}}</h3>
+	<h3 ng-if = "success">{{success}}</h3>
+	<center>
+
+		<div class="form-group">
+      <div ng-repeat = "notification in notifications" style = "border: 5px solid #6cb670; border-radius: 12px; padding: 12px 16px">
+        <span><h3 > <span class="fa fa-pencil"> </span> &nbsp {{ notification.content }} </h3></span>
+        <span><h3 > <span class="fa fa-clock-o"> </span> &nbsp {{notification.date | date: 'medium'}} </h3></span>
+
+      </div>
+
+
+		</div>
+
+
+
+
+
+
+</div>

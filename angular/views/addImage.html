@@ -1,0 +1,18 @@
+<h3 style="color:#000;"> &nbsp;&nbsp; Upload Image</h3>
+<hr>
+<form name="form.userForm" ng-submit="addImage(formData)">
+    <div class="modal-body">
+<p style="color:#000;" >You can add only maximum 4 images to the slider.</p>
+    		<div class="alert alert-danger" ng-if = "err">{{err}}</div>
+
+        <div class="form-group">
+            <label style="color:#000;" >Image</label>
+            <input type="file" name="img" class="form-control w3-round" file-model="formData.img">
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button style="color:#000;"  type="submit" class="btn btn-primary">OK</button>
+        <a style="color:#000;" class="btn btn-warning" ng-click="cancel()">Cancel</a>
+    </div>
+</form>

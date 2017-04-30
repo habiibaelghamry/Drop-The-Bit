@@ -1,0 +1,189 @@
+<section id="blog-page">
+    <div class="container" ng-app = "fasa7ny" ng-controller="webAdminController">
+        <div class="row">
+
+            <!-- LEFT Sectinon !-->
+            <div id="blog-posts" class="col-md-8 col-sm-8">
+
+                <!-- ADD BUSINESS SECTION !-->
+                <div class="post-item">
+
+                    <!-- section title -->
+                    <div class="title text-center wow fadeIn" data-wow-duration="500ms">
+                        <h2>ADD <span class="color">BUSINESS</span></h2>
+                        <div class="border"></div>
+                    </div>
+                    <!-- /section title -->
+
+                   <!-- Single Post -->
+                    <!-- <article class="entry wow fadeInDown"  data-wow-duration="1000ms" data-wow-delay="300ms" ng-repeat = "info in all_info"> -->
+                   <div style="max-width: 400px;" >
+                <form ng-model = "formData">
+                    <!-- <h3>Username</h3> <br> -->
+                    <input style="color:#000;" class="w3-input w3-border w3-round" type="text" placeholder="Username" data-ng-model= "business.username" required></input> <br>
+                    <!-- <h3>Name</h3> <br> -->
+                    <input style="color:#000;" class="w3-input w3-border w3-round" type="text" placeholder="Name" ng-model = "business.name" required></input> <br>
+                    <!-- <h3>Email</h3> -->
+                    <input style="color:#000; " type="email" placeholder="Email" class="w3-input w3-border w3-round"  data-ng-model="business.email" required/> </input> <br>
+                    <!-- <h3> Merchant ID</h3><br> -->
+                    <input style="color:#000;" class="w3-input w3-border w3-round" placeholder="Merchant ID"  type="text" data-ng-model="business.merchant_ID" required> </input><br>
+                    <!--   <h3>Category</h3> -->
+                    <div class="styled-select">
+                      <select style="width: 400px;color:#000;" required ng-model="business.category">
+                       <h3> <option disabled selected value>Choose a Category</option>
+                        <option value="thrill">Thrill</option>
+                        <option value="escape">Escape</option>
+                        <option value="outlet">Outlet</option></h3>
+                      </select>
+                    </div><br>
+                    <!-- <select ng-model="business.category" ng-options="cat for cat in categories"></select> -->
+
+                    <button type="submit" ng-click =  "addBusiness()" class="btn btn-transparent">ADD</button>
+                </form>
+            </div>
+
+                   <!-- Right Sectinon !-->
+            <div id="right-sidebar" class="col-md-4 col-sm-4">
+
+                <!-- ADD Ads SECTION !-->
+                <div class="post-item">
+
+                    <!-- section title -->
+                    <div class="title text-center wow fadeIn" data-wow-duration="500ms">
+                        <h2>ADD <span class="color">ADVERTISEMENT</span></h2>
+                        <div class="border"></div>
+                    </div>
+                    <!-- /section title -->
+
+                   <!-- Single Post -->
+                    <!-- <article class="entry wow fadeInDown"  data-wow-duration="1000ms" data-wow-delay="300ms" ng-repeat = "info in all_info"> -->
+                   <div style="max-width: 400px;" >
+                <form ng-model = "formData">
+                <h3>Advertisement Body</h3> <br>
+                    <textarea rows="3" style="color:#000;" class="w3-input w3-border w3-round"  placeholder="Advertisement Body" data-ng-model= "advertisement.text" required></textarea> <br>
+                   <h3>Image</h3> <br>
+                   <input type="file" name="image" style="color:#000;" class="w3-input w3-border w3-round"  placeholder="image" file-model="advertisement.image"/>
+                    <h3>Start Date</h3> <br>
+                    <input style="color:#000;" class="w3-input w3-border w3-round" type="date" placeholder="Start Date" ng-model = "business.sdate" required></input> <br>
+                    <h3>End Date</h3> <br>
+                     <input style="color:#000;" class="w3-input w3-border w3-round" type="date" placeholder="End Date" ng-model = "business.edate" required></input> <br>
+                    <button type="submit" ng-click =  "addAds()" class="btn btn-transparent">ADD</button>
+
+                </form>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+                   <!--  </article> -->
+                    <!-- End Single Post -->
+
+                </div>
+                <!-- End of ADD business SECTION!-->
+
+            </div>
+
+
+
+
+
+        </div>      <!-- End row -->
+    </div>       <!-- End container -->
+</section>    <!-- End Section -->
+
+
+
+<a href="#" id="scrollUp"><i class="fa fa-angle-up fa-2x"></i></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- LEFT Sectinon !-->
+            <div id="blog-posts" class="col-md-8 col-sm-8">
+
+                <!-- BOOKINGS SECTION !-->
+                <div class="post-item">
+
+                    <!-- section title -->
+                    <div class="title text-center wow fadeIn" data-wow-duration="500ms">
+                        <h2>Add <span class="color">Business</span></h2>
+                        <div class="border"></div>
+                    </div>
+                    <!-- /section title -->
+
+                   <!-- Single Post -->
+                    <article class="entry wow fadeInDown"  data-wow-duration="1000ms" data-wow-delay="300ms" ng-repeat = "info in all_info">
+
+
+                        <div class="post-excerpt">  <!-- first section beginning !-->
+
+                            <!-- Name of Event + w/ + Name of Business !-->
+                            <h3>
+                                <a href="../single-post.html"> {{info.event.name}}</a>
+                                <a href="../single-post.html"> <span class="color">w/</a>
+                                <a href="../single-post.html"> {{info.business.name}} </a>
+                                <!-- <img src="../img/user_profile/rating_3.png" alt="rating" > !-->
+                            </h3>
+
+                            <br>
+
+                            <p> {{info.event.description}} </p>
+
+                            <br>
+
+                            <img src="../img/user_profile/phone-icon-3.png" alt="phone_icon" class="image2" align="left">
+                            <div style="padding-left: 23px;" ng-repeat = "phone in info.business.phones">
+                               <p style="font-size:12px;">  {{phone}} </p>
+                            </div>
+
+                            <img src="../img/user_profile/location_icon12.png" alt="location_icon" class="image2" align="left">
+                            <div style="padding-left: 23px;">
+                               <p style="font-size:12px">  {{info.business.address}}</p>
+                            </div>
+                        </div>  <!-- first section end !-->
+
+                        <div class="post-meta2" ">  <!-- second section beginning !-->
+                            <span class="post-date">
+                                <i class="fa fa-calendar"></i> {{info.eventocc.day | date }} @ {{info.eventocc.time  }}
+                            </span>
+
+                            <span class="author">
+                                <i class="fa fa-user"></i> {{info.booking.count}} person(s)</a>
+                            </span>
+
+                            <span>
+                                <p style="display:inline">Total: <span class="color"> {{info.booking.charge}} 150 EGP &nbsp; </p>
+                            </span>
+
+                            <div style=" display:inline;  vertical-align: middle; padding-left: 180px">
+                                <a class="btn btn-booking" href="../single-post.html">Cancel Booking</a>
+                            </div>
+                        </div>  <!-- second section end !-->
+                    </article>
+                    <!-- End Single Post -->
+
+                </div>
+                <!-- End of BOOKINS SECTION!-->

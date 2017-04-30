@@ -1,0 +1,76 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+<head>
+	<title>Node Authentication</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<style>
+		body 		{ padding-top:80px; word-wrap:break-word; }
+	</style>
+</head>
+<body>
+<div class="container">
+
+	<div class="page-header text-center">
+		<h1><span class="fa fa-anchor"></span> <%= business.name %> </h1>
+	</div>
+
+	<div class="row">
+
+	<p><h4>Description</h4></p>
+	 
+            <div class="row">
+                
+                      <h6>  <%= business.description %></h6>
+               
+            </div>
+
+
+	</div>
+</r></r>
+<div class="row">
+
+	<p><h4>Category</h4></p>
+	 
+            <div class="row">
+                
+                      <h6>  <%= business.category %></h6>
+               
+            </div>
+
+
+	</div>
+	</r></r>
+	<div class="row">
+
+	<p><h4>Average Rating</h4></p>
+	 
+            <div class="row">
+               
+                      <h6> <%= business.average_rating + "" %></h6>
+                
+            </div>
+            
+
+	</div>
+
+	</r></r>
+	<div class="row">
+
+	<p><h4>Phones</h4></p>
+	 
+            <div class="row">
+               
+                <% for(var i=0; i< business.phones.length; i++){%>
+                      <h6> "phone: " <%= business.phones[i] %></h6></r>
+                     
+                <% } %>
+            </div>
+            
+
+	</div>
+
+</div>
+</body>
+</html>

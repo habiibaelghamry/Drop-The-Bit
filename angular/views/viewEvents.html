@@ -1,0 +1,58 @@
+
+<br>
+<br>
+<br>
+
+<div class="title text-center wow fadeIn" data-wow-duration="1500ms" >
+      <h2>{{name1}}<span class="color">{{name2}}</span></h2>
+      <div class="border"></div>
+</div>
+
+<center ng-if = "!eventslength">
+<section ng-if = "!eventslength" id="blog-page">
+     <div ng-if = "!eventslength" class="container">
+         <div ng-if = "!eventslength"  class="row">
+
+           <div ng-if = "!eventslength" id="blog-posts" class="col-md-8 col-sm-8">
+               <div ng-if = "!eventslength"  class="post-item">
+
+                   <article ng-if = "!eventslength"  class="entry wow fadeInDown"  data-wow-duration="1000ms" data-wow-delay="300ms">
+
+                     <h2 ng-if = "!eventslength"> &nbsp;&nbsp;This facility has no events</h2>
+
+                   </article>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </section>
+</center>
+
+<center>
+<section ng-if = "eventslength" id="blog-page">
+     <div ng-if = "eventslength" class="container">
+         <div ng-if = "eventslength" class="row">
+
+           <div ng-if = "eventslength" id="blog-posts" class="col-md-8 col-sm-8">
+               <div ng-if = "eventslength" class="post-item">
+
+                   <article  class="entry wow fadeInDown"  data-wow-duration="1000ms" data-wow-delay="300ms">
+                     <br>
+                       <div ng-repeat="event in events">
+                        Time:  {{event.time}} <br>
+                        Price: {{event.price}} EGP <br>
+                        Days Off: {{event.days}} <br>
+                          <button class="btn btn-transparent" ng-click="viewOccurences(event._id)">View Occurences</button>
+                          <button class="btn btn-transparent" ng-if= "type==4" ng-click="editDailyEvent(event._id)">Edit Event</button>
+                          <button class="btn btn-transparent"  ng-if= "type==4" ng-click="deleteEvent(event._id)">Delete Event</button>
+                          <hr width="40%">
+                       </div>
+                   </article>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </section>
+</center>

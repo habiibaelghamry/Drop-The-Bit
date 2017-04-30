@@ -1,0 +1,265 @@
+<!-- Bootstrap 3.1 -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-1.11.0.min.js"></script>
+<!-- Bootstrap 3.1 -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Slitslider -->
+<script src="js/jquery.slitslider.js"></script>
+<script src="js/jquery.ba-cond.min.js"></script>
+<!-- Parallax -->
+<script src="js/jquery.parallax-1.1.3.js"></script>
+<!-- Owl Carousel -->
+<script src="js/owl.carousel.min.js"></script>
+<!-- Portfolio Filtering -->
+<script src="js/jquery.mixitup.min.js"></script>
+<!-- Custom Scrollbar -->
+<script src="js/jquery.nicescroll.min.js"></script>
+<!-- Jappear js -->
+<script src="js/jquery.appear.js"></script>
+<!-- Pie Chart -->
+<script src="js/easyPieChart.js"></script>
+<!-- jQuery Easing -->
+<script src="js/jquery.easing-1.3.pack.js"></script>
+<!-- tweetie.min -->
+<script src="js/tweetie.min.js"></script>
+<!-- Highlight menu item -->
+<script src="js/jquery.nav.js"></script>
+<!-- Sticky Nav -->
+<script src="js/jquery.sticky.js"></script>
+<!-- Number Counter Script -->
+<script src="js/jquery.countTo.js"></script>
+<!-- wow.min Script -->
+<script src="js/wow.min.js"></script>
+<!-- For video responsive -->
+<script src="js/jquery.fitvids.js"></script>
+<!-- Grid js -->
+<script src="js/grid.js"></script>
+<!-- Custom js -->
+<script src="js/custom.js"></script>
+<script src="js/classie.js"></script>
+
+<!-- CSS
+================================================== -->
+<!-- Fontawesome Icon font -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+<!-- bootstrap.min css -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl.carousel.css">
+<!-- Grid Component css -->
+	<link rel="stylesheet" href="css/component.css">
+<!-- Slit Slider css -->
+	<link rel="stylesheet" href="css/slit-slider.css">
+<!-- Main Stylesheet -->
+	<link rel="stylesheet" href="css/main.css">
+<!-- Media Queries -->
+	<link rel="stylesheet" href="css/media-queries.css">
+	<link rel="stylesheet" href="css/responsive.css">
+
+
+<!-- Welcome Slider
+==================================== -->
+<section id="home" >
+	<div id="slitSlider" class="sl-slider-wrapper">
+		<div class="sl-slider">
+
+			<!-- single slide item -->
+			<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+				<div class="sl-slide-inner">
+					<div class="bg-img bg-img-1" ></div>
+					<div class="carousel-caption">
+						<div>
+							<img class="wow fadeInUp" src="img/fasa7ny_main3.png" alt="Meghna">
+					 	</div>
+					</div>
+				</div>
+			</div>
+			<!-- /single slide item -->
+
+			<!-- single slide item -->
+			<div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+				<div class="sl-slide-inner">
+					<div class="bg-img bg-img-2"></div>
+					<div class="carousel-caption">
+						<div>
+							<img class="wow fadeInUp" src="img/jump8.png" alt="Meghna">
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /single slide item -->
+
+			<!-- single slide item -->
+			<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
+				<div class="sl-slide-inner">
+					<div class="bg-img bg-img-3"></div>
+					<div class="carousel-caption">
+						<div>
+							<img class="wow fadeInUp" src="img/desert3.png" alt="Meghna">
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /single slide item -->
+
+		</div>
+		<!-- /sl-slider -->
+
+		<nav id="nav-arrows" class="nav-arrows">
+			<span class="nav-arrow-prev">Previous</span>
+			<span class="nav-arrow-next">Next</span>
+		</nav>
+
+		<nav id="nav-dots" class="nav-dots">
+			<span class="nav-dot-current"></span>
+			<span></span>
+			<span></span>
+		</nav>
+
+	</div> <!-- /slider-wrapper -->
+</section> <!--/section-->
+
+
+
+<!-- Start Categories Section
+=========================================== -->
+<section id="services" >
+	<div class="container">
+		<div class="row">
+
+			<!-- section title -->
+			<div class="title text-center wow fadeIn" data-wow-duration="500ms">
+				<h2> What Do You <span class="color">Feel Like Doing</span> today?</h2>
+				<div class="border"></div>
+			</div>
+			<!-- /section title -->
+
+
+			<div style="margin:0 auto;">
+
+			    <article ng-mouseenter="options=true" ng-mouseleave="options=false" class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="500ms">
+			        <img ng-src='img/thrill_final.png' alt="Avatar" id = "thrill" class="image" style="object-fit: cover" ng-hide="options">
+			        <img ng-src='img/thrill_back_final.png' alt="Avatar" id = "thrill_back" class="image" style="object-fit: cover" ng-show="options" ng-click = "goToSearch(category1)">
+			        <br>
+			    </article>
+
+
+			    <article ng-mouseenter="options2=true" ng-mouseleave="options2=false" class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="500ms">
+			        <img ng-src='img/outlet_final.png' alt="Avatar" id = "outlet" class="image" style="object-fit: cover" ng-hide="options2">
+			        <img ng-src='img/outlet_back_final.png' alt="Avatar" id = "outlet_back" class="image" style="object-fit: cover" ng-show="options2" ng-click = "goToSearch(category2)">
+					<br>
+			    </article>
+
+
+			    <article ng-mouseenter="options3=true" ng-mouseleave="options3=false" class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="500ms">
+			        <img ng-src='img/escape3.png' alt="Avatar" id = "escape" class="image" style="object-fit: cover" ng-hide="options3">
+			        <img ng-src='img/escape_back_final.png' alt="Avatar" id = "escape_back" class="image" style="object-fit: cover" ng-show="options3" ng-click = "goToSearch(category3)">
+			          <br>
+			    </article>
+
+			</div>
+		</div> 		<!-- End row -->
+	</div>   	<!-- End container -->
+</section>   <!-- End section -->
+
+
+
+<!-- Start Advertisements Section
+==================================== -->
+<section id="services" class="bg-one">
+    <div class="container">
+        <div class="row">
+
+            <!-- section title -->
+            <div class="title text-center wow fadeIn" data-wow-duration="500ms">
+                <h2> Some <span class="color"> Advertisements </span></h2>
+                <div class="border"></div>
+            </div>
+            <!-- /section title -->
+
+            <!-- Single Ad Item -->
+            <div  ng-repeat = "ad in advertisements">
+	            <article class="col-md-4 wow fadeInUp" data-wow-duration="500ms">
+	                <div class="post-item">
+	                    <article class="entry wow fadeInDown"  data-wow-duration="1000ms" data-wow-delay="300ms">
+
+	                        <div class="post-thumb">
+	                                <img ng-src="{{ad.image}}" alt="3D Beach Art | Meghna" class="img-responsive">
+	                        </div>
+
+	                        <!-- <div class="post-excerpt">
+	                            <p>{{ ad.text }}</p>
+	                        </div> -->
+	                    </article>
+	                </div>
+	            </article>
+            </div>
+            <!-- End Single Ad Item -->
+
+        </div>      <!-- End row -->
+    </div>      <!-- End container -->
+</section>   <!-- End section -->
+
+
+
+<!-- Srart Contact Us Area
+=========================================== -->
+<section id="contact-us" ng-cloak>
+	<div class="container">
+		<div class="row">
+
+			<!-- section title -->
+			<div class="title text-center wow fadeIn" data-wow-duration="500ms">
+				<h2> Get In <span class="color"> Touch </span></h2>
+				<div class="border"></div>
+			</div>
+			<!-- /section title -->
+
+			<!-- Contact Details -->
+	<div class="contact-info col-md-6 wow fadeInUp" data-wow-duration="500ms">
+		<h3>Contact Details</h3>
+		<p>Interested business? Intrigued party? Please send us your enquiry using one of the following: </p>
+		<br>
+		<div class="contact-details">
+			<div class="con-info clearfix">
+				<i class="fa fa-home fa-lg"></i>
+				<span>Somewhere over the rainbow</span>
+			</div>
+
+			<div class="con-info clearfix">
+				<i class="fa fa-phone fa-lg"></i>
+				<span>Phone: 01223456789</span>
+			</div>
+
+			<div class="con-info clearfix">
+				<i class="fa fa-fax fa-lg"></i>
+				<span>Fax: +987456123</span>
+			</div>
+
+			<div class="con-info clearfix">
+				<i class="fa fa-envelope fa-lg"></i>
+				<span>Email: fasa7ny.team@gmail.com</span>
+
+			</div>
+			<div class="con-info clearfix">
+				<i class="fa fa-lock fa-lg"></i>
+				<span>Check our <a href="/#!/privacyPolicy">Privacy Policy</a></span>
+				<br><br><br><br><br><br><br>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- / End Contact Details -->
+
+	<div class="social-icon">
+		<ul>
+			<li><a href="https://www.facebook.com/Fasa7ny-1886931471525333/"><i class="fa fa-facebook"></i></a></li>
+		</ul>
+	</div>
+
+
+</div> <!-- end row -->
+</div> <!-- end container -->

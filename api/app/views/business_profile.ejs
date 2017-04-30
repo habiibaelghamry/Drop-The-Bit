@@ -1,0 +1,80 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+<head>
+	<title>Node Authentication</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<style>
+		body 		{ padding-top:80px; word-wrap:break-word; }
+	</style>
+</head>
+<body>
+<div class="container">
+
+	<div class="page-header text-center">
+		<h1><span class="fa fa-anchor"></span> Profile Page</h1>
+		<strong>Business Profile</strong>
+		<a href="/auth/logout" class="btn btn-default btn-sm">Logout</a>
+	</div>
+
+	<div class="row">
+
+				<form action = "/event/" method="get">
+		<input type="submit"  name="edit" value="Events"></input> 
+
+		</form>
+
+		<form action = "/event/view" method="post">
+		<input type="submit"  name="edit" value="View All Events"></input> 
+
+		</form>
+
+		<form action = "/event/viewO" method="post">
+		Event ID: <br>
+		<input type = "text" name="id" required></input> <br>
+		<input type="submit"  name="edit" value="View All Occurrences"></input> 
+
+		</form>
+
+		<form action = "/business/requestRemoval" method="post">
+		<input type="submit"  name="requestRemoval" value="Request Removal"></input> 
+
+		</form>
+
+		<form action = "/business/deletePhone" method="post">
+		Phone to be deleted: <br>
+		<input type = "text" name="phone" required></input> <br>
+		<input type="submit"  name="del" value="Delete Phone"></input> 
+		</form>
+
+		<form action = "/business/deletePaymentMethod" method="post">
+		Payment method to be deleted: <br>
+		<input type = "text" name="payment" required></input> <br>
+		<input type="submit"  name="del" value="Delete Payment"></input> 
+		</form>
+
+		<form action = "/business/editInformation" method="post">
+		
+ 		Description: <br>
+ 		<input type="text" name="description"></input> <br>
+ 		Location: <br>
+ 		<input type="text" name="location"></input> <br>
+ 		Email: <br>
+ 		<input type="text" name="email"></input> <br>
+ 		Address: <br>
+ 		<input type="text" name="address"></input> <br>
+ 		Area: <br>
+ 		<input type="text" name="area"></input> <br>
+ 		Phone: <br>
+ 		<input type="text" name="phones"></input> <br>
+ 		Payment Method: <br>
+ 		<input type="text" name="payment_methods"></input> <br>
+<input type="submit"  name="edit" value="Edit Information"></input> 
+
+	</form>
+		
+
+</div>
+</body>
+</html>

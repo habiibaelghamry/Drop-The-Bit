@@ -1,0 +1,23 @@
+<center>
+       <section id = "blog-page">
+            <div ng-if = "type == 4" style="max-width: 400px;" ng-app = "fasa7ny" ng-controller = "facilityController">
+       <div ng-if = “type != 4”>
+          <center>
+         <br><br> <h1>Your are not authorized to view this page.</h1> </center><br><br><br>
+        </div>
+            <div style="max-width: 400px;" ng-app = "fasa7ny" ng-controller = "facilityController" ng-if = "type == 4">
+                <form name = "form.userForm" ng-model = "formData">
+                    <h3>Name</h3> <br>
+                    <input style="color:#000;" class="w3-input w3-border w3-round" type="text" ng-model = "formData.name" required></input> <br>
+                    <h3>Capacity</h3> <br>
+                    <input style="color:#000;" class="w3-input w3-border w3-round" type="number" min = "1" ng-model = "formData.capacity" ng-pattern="/^(0|\-?[1-9][0-9]*)$/" required></input> <br>
+                    <h3>Image</h3>
+                    <input type="file" file-model="formData.img" required/>
+                    <h3>Description </h3><br>
+                    <textarea style="color:#000;" class="w3-input w3-border w3-round" type="text" ng-model = "formData.description" rows="5" cols="70" required> </textarea><br>
+                    {{error}}
+                    <button type="submit" ng-click = "goToCreate()" class="btn btn-transparent" ng-disabled="form.userForm.$invalid">Create</button>
+                </form>
+            </div>
+   </section>
+<center>

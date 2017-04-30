@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Events</title>
+</head>
+<body>
+
+	<form action = "/event/create" method="post">
+		Name: <br>
+ 		<input type="text" name="name" required=></input> <br>
+ 		Description: <br>
+ 		<input type="text" name="description" required></input> <br>
+ 		Location: <br>
+ 		<input type="text" name="location" required></input> <br>
+ 		Price: <br>
+ 		<input type="number" step = "0.01" name="price" required=></input> <br>
+ 		Capacity: <br>
+ 		<input type="number" name="capacity" required></input> <br>
+ 		Repeated: <br>
+ 		<input type="text" name="repeat" required></input> <br>
+ 		Date: <br>
+ 		<input type="date" name="date"></input> <br>
+ 		Time: <br>
+ 		<input type="text" name="timing"></input> <br>
+ 		Days Off:
+ 		<input type="radio" name="day" value="0" > Sunday<br>
+  		<input type="radio" name="day" value="1"> Monday<br>
+  		<input type="radio" name="day" value="2"> Tuesday <br>
+  		<input type="radio" name="day" value="3" > Wednesday<br>
+  		<input type="radio" name="day" value="4"> Thursday<br>
+  		<input type="radio" name="day" value="5"> Friday <br>
+  		<input type="radio" name="day" value="6"> Saturday <br>
+
+  		<input type="submit"  name="create" value="Create Event"></input> 
+
+	</form>
+
+	<form action = "/event/edit" method="post">
+		Event ID: <br>
+ 		<input type="text" name="id" required></input> <br>
+ 			Name: <br>
+ 		<input type="text" name="name"></input> <br>
+ 		Description: <br>
+ 		<input type="text" name="description"></input> <br>
+ 		Location: <br>
+ 		<input type="text" name="location"></input> <br>
+ 		Price: <br>
+ 		<input type="number" step = "0.01" name="price"></input> <br>
+ 		Capacity: <br>
+ 		<input type="number" name="capacity"></input> <br>
+ 		Repeated: <br>
+ 		<input type="text" name="repeat"></input> <br>
+ 		Date: <br>
+ 		<input type="date" name="date"></input> <br>
+ 		Time: <br>
+ 		<input type="text" name="timing"></input> <br>
+ 		Days Off:
+ 		<input type="radio" name="day" value="0" > Sunday<br>
+  		<input type="radio" name="day" value="1"> Monday<br>
+  		<input type="radio" name="day" value="2"> Tuesday <br>
+  		<input type="radio" name="day" value="3" > Wednesday<br>
+  		<input type="radio" name="day" value="4"> Thursday<br>
+  		<input type="radio" name="day" value="5"> Friday <br>
+  		<input type="radio" name="day" value="6"> Saturday <br>
+
+	<input type="submit"  name="edit" value="Edit Event"></input> 
+
+	</form>
+
+	<form action = "/event/cancel" method="post">
+		Event ID: <br>
+ 		<input type="text" name="id" required></input> <br>
+		<input type="submit"  name="cancel" value="Cancel Event"></input> 
+
+	</form>
+
+	<form action = "/event/cancelO" method="post">
+		Occurrence ID: <br>
+ 		<input type="text" name="id" required></input> <br>
+		<input type="submit"  name="cancel" value="Cancel Occurrence"></input> 
+
+	</form>
+
+</body>
+</html>

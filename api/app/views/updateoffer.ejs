@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <% if(!(user && user.user_type == 2)) {%>
+     <p> you're not authorized to view this page </p>
+    <%} else {%>
+    <h1>Update Offer: </h1>
+    <form action = "/offers/updateOffer/?id=<%=id %>" enctype="multipart/form-data" method="post">
+
+    name: <input type="text" name="name"><br>
+    type: <input type="text" name="type" ><br>
+    details: <input type="text" name="details" ><br>
+    value: <input type="text" name="value" ><br>
+    start_date: <input type="datetime-local" name="start_date" ><br>
+    expiration_date: <input type="datetime-local" name="expiration_date" ><br>
+    notify_subscribers:  		<input type="radio" name="notify_subscribers" value="1" > Yes<br>
+      		                <input type="radio" name="notify_subscribers" value="0"> No<br>
+    Image: <input type="file" name = "image"><br>
+
+    <input type="submit"><br> </button>
+
+    </form>
+  <%} %>
+  </body>
+</html>

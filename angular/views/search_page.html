@@ -1,0 +1,342 @@
+		<!-- Start Our Team
+		=========================================== -->
+
+		<script>
+		    var search_arrow = document.getElementById('arrow_search');
+		    var div_searchtools = document.getElementById('search_tools');
+		    var search_cross = document.getElementById('cross_search');
+
+		    search_arrow.addEventListener('click', function() {
+		      div_searchtools.style.visibility = "visible";
+		      search_arrow.style.display = "none";
+		      search_cross.style.display = "inline-block";
+
+		    });
+
+		   	search_cross.addEventListener('click', function() {
+		      div_searchtools.style.visibility = "hidden";
+		      search_arrow.style.display = "inline-block";
+		      search_cross.style.display = "none";
+		    });
+		</script>
+
+		
+		<section id="twitter-feed">
+			<div class="container">
+				<div class="row">
+				
+					<!-- section title -->
+					<div class="title text-center wow fadeInUp" data-wow-duration="500ms">
+						<h2>Search <span class="color">Businesses</span></h2>
+						<div class="border"></div>
+
+						<br> <br>
+
+						<div class = "contact-form" style="margin: 0 auto; ">
+
+				       		 <form id="contact-form" role="search">
+			                    <div class="form-group"  style="width: 50%; display: inline-block;">
+							        <input type="text" class="form-control" placeholder="Search..">
+							   </div>
+							   	&nbsp;
+
+								<div class="form-group"  style="width: 10%; display: inline-block;">
+							        <button type="submit" class="form-control">
+							        	<span class="glyphicon glyphicon-search btn-search"></span>
+							        </button>
+							   </div>
+							   &nbsp;&nbsp;
+							   	<div class="form-group"  style="display: inline-block;" id = "arrow_search">
+									<input type="image" id="myimage" style="" src="img/search/arrrow10.png" />
+							   </div>
+
+							   	<div class="form-group"  style="display: none;" id = "cross_search">
+									<input type="image" id="myimage" style="" src="img/search/cross4.png" />
+							   </div>
+				
+							   			
+							   <br>
+							   <div id = "search_tools" style="visibility: hidden;">
+				                    <select style="display: inline-block; width: 10%;">
+				                          <option value="" disabled selected> Sort By </option>
+				                          <option value="volvo">Rating</option>
+				                          <option value="saab">Area</option>
+				                          <option value="mercedes">Name</option>
+				                    </select>
+				                    &nbsp;
+					                 <select style="display: inline-block; width: 10%">
+				                          <option value="" disabled selected> Category </option>
+				                          <option value="volvo">All</option>
+				                          <option value="saab">Fun</option>
+				                          <option value="mercedes">Escape Rooms</option>
+				                          <option value="mercedes">Travel</option>
+				                          <option value="mercedes">Adventure</option>
+				                    </select>
+				                    &nbsp;
+				                     <select style="display: inline-block; width: 10%">
+				                          <option value="" disabled selected>  Area </option>
+				                          <option value="volvo">All</option>
+				                          <option value="saab">New Cairo</option>
+				                          <option value="mercedes">Masr El-Gedida</option>
+				                          <option value="mercedes">Maadi</option>
+				                          <option value="mercedes">Tagamoa</option>
+				                    </select>
+				                    &nbsp;
+				                    <div class="form-group rounded"  style="width: 10%; display: inline-block;">
+								        <input type="text" class="form-control" placeholder="Min Rating">
+								   </div>
+					
+								</div>
+							</form>
+						</div>
+
+
+					</div>
+					<!-- /section title -->
+
+					<div style="display: inline;">
+
+						<!-- team member -->
+						<div class="col-md-3 col-sm-6 wow fadeInDown" data-wow-duration="500ms" style="padding-bottom: 30px">
+	                       <article class="team-mate">
+								<div class="member-photo">
+									<!-- member photo -->
+									<img class="img-responsive" src="img/search/laserfight.jpg" alt="Meghna" style="width:  280px; height: 260px; object-fit: cover">
+									<!-- /member photo -->
+									
+									<!-- member social profile -->
+									<div class="mask" style="padding-top: 20px; padding-left: 20px; padding-right: 20px; padding-bottom: 20px">
+										<p> <span class="color">Description:</span></p>
+										<p style="font-size: 12px"> KidZania is the ultimate desination for kids. It helps thaen uncover their talents and discover their passions, all while having lots and lots of fun.</p>
+										<br>
+										<div >
+											<i class="fa fa-map-marker" aria-hidden="true" style="color: #6cb670"></i>
+											<p style="font-size: 12px; display: inline;"> &nbsp; New Cairo &nbsp; </p>
+											<i class="fa fa-star" aria-hidden="true" style="color: #6cb670"></i>
+											<p style="font-size: 12px; display: inline;"> &nbsp; 5.0 &nbsp; </p>
+											<i class="fa fa-tag" aria-hidden="true" style="color: #6cb670"></i>
+											<p style="font-size: 12px; display: inline;"> &nbsp; Outlet &nbsp; </p>
+											
+										</div>
+										<br>
+										 <button class="btn btn-booking" ng-click = "goToEditProfile(user._id)" style = "display:block;margin: 0 auto;"> View Page </button>
+									</div>
+									<!-- /member social profile -->
+								</div>
+								
+								<!-- member name & designation -->
+								<div class="member-title" style="padding-top: 0px">
+									<h2 style="text-align: center; font-size: 30px;" > -- Laser Fight -- </h2>
+								</div>
+								<!-- /member name & designation -->
+							   
+	                       </article>
+	                    </div>
+						<!-- end team member -->
+						
+						<!-- team member -->
+						<div class="col-md-3 col-sm-6 wow fadeInDown" data-wow-duration="500ms" data-wow-delay="200ms" style="padding-bottom: 30px">
+	                       <article class="team-mate" >
+								<div class="member-photo" >
+									<!-- member photo -->
+									<img class="img-responsive" src="img/search/breakout.jpg" alt="Meghna" style="width:  280px; height: 260px; object-fit: cover" >
+									<!-- /member photo -->
+									
+									<!-- member social profile -->
+									<div class="mask" style="padding-top: 20px; padding-left: 20px; padding-right: 20px; padding-bottom: 20px">
+										<p> <span class="color">Description:</span></p>
+										<p style="font-size: 12px"> KidZania is the ultimate desination for kids. It helps thaen uncover their talents and discover their passions, all while having lots and lots of fun.</p>
+										<br>
+										<div >
+											<i class="fa fa-map-marker" aria-hidden="true" style="color: #6cb670"></i>
+											<p style="font-size: 12px; display: inline;"> &nbsp; New Cairo &nbsp; </p>
+											<i class="fa fa-star" aria-hidden="true" style="color: #6cb670"></i>
+											<p style="font-size: 12px; display: inline;"> &nbsp; 5.0 &nbsp; </p>
+											<i class="fa fa-tag" aria-hidden="true" style="color: #6cb670"></i>
+											<p style="font-size: 12px; display: inline;"> &nbsp; Outlet &nbsp; </p>
+											
+										</div>
+										<br>
+										 <button class="btn btn-booking" ng-click = "goToEditProfile(user._id)" style = "display:block;margin: 0 auto;"> View Page </button>
+									</div>
+									<!-- /member social profile -->
+								</div>
+								
+								<!-- member name & designation -->
+								<div class="member-title" style="padding-top: 0px" >
+									<h2 style="text-align: center; font-size: 30px;" > -- BreakOut Egypt -- </h2>
+								</div>
+								<!-- /member name & designation -->
+								
+							</article>
+	                    </div>
+						<!-- end team member -->
+						
+						<!-- team member -->
+						<div class="col-md-3 col-sm-6 wow fadeInDown" data-wow-duration="500ms" data-wow-delay="400ms" style="padding-bottom: 30px">
+	                       <article class="team-mate">
+								<div class="member-photo">
+									<!-- member photo -->
+									<img class="img-responsive" src="img/search/escaperoom.jpg" alt="Meghna" style="width:  280px; height: 260px; object-fit: cover">
+									<!-- /member photo -->
+									
+									<!-- member social profile -->
+									<div class="mask" style="padding-top: 20px; padding-left: 20px; padding-right: 20px; padding-bottom: 20px">
+										<p> <span class="color">Description:</span></p>
+										<p style="font-size: 12px"> KidZania is the ultimate desination for kids. It helps thaen uncover their talents and discover their passions, all while having lots and lots of fun.</p>
+										<br>
+										<div >
+											<i class="fa fa-map-marker" aria-hidden="true" style="color: #6cb670"></i>
+											<p style="font-size: 12px; display: inline;"> &nbsp; New Cairo &nbsp; </p>
+											<i class="fa fa-star" aria-hidden="true" style="color: #6cb670"></i>
+											<p style="font-size: 12px; display: inline;"> &nbsp; 5.0 &nbsp; </p>
+											<i class="fa fa-tag" aria-hidden="true" style="color: #6cb670"></i>
+											<p style="font-size: 12px; display: inline;"> &nbsp; Outlet &nbsp; </p>
+											
+										</div>
+										<br>
+										 <button class="btn btn-booking" ng-click = "goToEditProfile(user._id)" style = "display:block;margin: 0 auto;"> View Page </button>
+									</div>
+									<!-- /member social profile -->
+								</div>
+								
+								<!-- member name & designation -->
+								<div class="member-title" style="padding-top: 0px">
+									<h2 style="text-align: center; font-size: 30px;" > -- Escape Room -- </h2>
+								</div>
+								<!-- /member name & designation -->
+								
+
+	                       </article>
+	                    </div>
+						<!-- end team member -->
+
+
+
+						<!-- team member -->
+						<div class="col-md-3 col-sm-6 wow fadeInDown" data-wow-duration="500ms" data-wow-delay="600ms" style="padding-bottom: 30px">
+	                       <article class="team-mate kill-margin-bottom">
+								<div class="member-photo">
+									<!-- member photo -->
+									<img class="img-responsive" src="img/search/bfootball.jpg" alt="Meghna" style="width:  280px; height: 260px; object-fit: cover">
+									<!-- /member photo -->
+									
+									<!-- member social profile -->
+									<div class="mask" style="padding-top: 20px; padding-left: 20px; padding-right: 20px; padding-bottom: 20px">
+										<p> <span class="color">Description:</span></p>
+										<p style="font-size: 12px"> KidZania is the ultimate desination for kids. It helps thaen uncover their talents and discover their passions, all while having lots and lots of fun.</p>
+										<br>
+										<div >
+											<i class="fa fa-map-marker" aria-hidden="true" style="color: #6cb670"></i>
+											<p style="font-size: 12px; display: inline;"> &nbsp; New Cairo &nbsp; </p>
+											<i class="fa fa-star" aria-hidden="true" style="color: #6cb670"></i>
+											<p style="font-size: 12px; display: inline;"> &nbsp; 5.0 &nbsp; </p>
+											<i class="fa fa-tag" aria-hidden="true" style="color: #6cb670"></i>
+											<p style="font-size: 12px; display: inline;"> &nbsp; Outlet &nbsp; </p>
+											
+										</div>
+										<br>
+										 <button class="btn btn-booking" ng-click = "goToEditProfile(user._id)" style = "display:block;margin: 0 auto;"> View Page </button>
+									</div>
+									<!-- /member social profile -->
+								</div>
+								
+								<!-- member name & designation -->
+								<div class="member-title" style="padding-top: 0px">
+									<h2 style="text-align: center; font-size: 30px;" > -- Bubble Football -- </h2>
+								</div>
+								<!-- /member name & designation -->
+								
+	                       </article>
+	                    </div>
+						<!-- end team member -->
+						
+
+
+
+
+											<!-- team member -->
+						<div class="col-md-3 col-sm-6 wow fadeInDown" data-wow-duration="500ms" data-wow-delay="600ms" style="padding-bottom: 30px">
+	                       <article class="team-mate kill-margin-bottom">
+								<div class="member-photo">
+									<!-- member photo -->
+									<img class="img-responsive" src="img/search/adrenalin-paintball.jpg" alt="Meghna" style="width:  280px; height: 260px; object-fit: cover">
+									<!-- /member photo -->
+									
+									<!-- member social profile -->
+									<div class="mask" style="padding-top: 20px; padding-left: 20px; padding-right: 20px; padding-bottom: 20px">
+										<p> <span class="color">Description:</span></p>
+										<p style="font-size: 12px"> KidZania is the ultimate desination for kids. It helps thaen uncover their talents and discover their passions, all while having lots and lots of fun.</p>
+										<br>
+										<div >
+											<i class="fa fa-map-marker" aria-hidden="true" style="color: #6cb670"></i>
+											<p style="font-size: 12px; display: inline;"> &nbsp; New Cairo &nbsp; </p>
+											<i class="fa fa-star" aria-hidden="true" style="color: #6cb670"></i>
+											<p style="font-size: 12px; display: inline;"> &nbsp; 5.0 &nbsp; </p>
+											<i class="fa fa-tag" aria-hidden="true" style="color: #6cb670"></i>
+											<p style="font-size: 12px; display: inline;"> &nbsp; Outlet &nbsp; </p>
+											
+										</div>
+										<br>
+										 <button class="btn btn-booking" ng-click = "goToEditProfile(user._id)" style = "display:block;margin: 0 auto;"> View Page </button>
+									</div>
+									<!-- /member social profile -->
+								</div>
+								
+								<!-- member name & designation -->
+								<div class="member-title" style="padding-top: 0px">
+									<h2 style="text-align: center; font-size: 30px;" > -- Adrenalin Park -- </h2>
+								</div>
+								<!-- /member name & designation -->
+								
+	                       </article>
+	                    </div>
+						<!-- end team member -->
+
+
+											<!-- team member -->
+						<div class="col-md-3 col-sm-6 wow fadeInDown" data-wow-duration="500ms" data-wow-delay="600ms" style="padding-bottom: 30px">
+	                       <article class="team-mate kill-margin-bottom">
+								<div class="member-photo">
+									<!-- member photo -->
+									<img class="img-responsive" src="img/search/kidzania1.jpg" alt="Meghna" style="width:  280px; height: 260px; object-fit: cover">
+									<!-- /member photo -->
+									
+									<!-- member social profile -->
+									<div class="mask" style="padding-top: 20px; padding-left: 20px; padding-right: 20px; padding-bottom: 20px">
+										<p> <span class="color">Description:</span></p>
+										<p style="font-size: 12px"> KidZania is the ultimate desination for kids. It helps thaen uncover their talents and discover their passions, all while having lots and lots of fun.</p>
+										<br>
+										<div >
+											<i class="fa fa-map-marker" aria-hidden="true" style="color: #6cb670"></i>
+											<p style="font-size: 12px; display: inline;"> &nbsp; New Cairo &nbsp; </p>
+											<i class="fa fa-star" aria-hidden="true" style="color: #6cb670"></i>
+											<p style="font-size: 12px; display: inline;"> &nbsp; 5.0 &nbsp; </p>
+											<i class="fa fa-tag" aria-hidden="true" style="color: #6cb670"></i>
+											<p style="font-size: 12px; display: inline;"> &nbsp; Outlet &nbsp; </p>
+											
+										</div>
+										<br>
+										 <button class="btn btn-booking" ng-click = "goToEditProfile(user._id)" style = "display:block;margin: 0 auto;"> View Page </button>
+									</div>
+									<!-- /member social profile -->
+								</div>
+								
+								<!-- member name & designation -->
+								<div class="member-title" style="padding-top: 0px">
+									<h2 style="text-align: center; font-size: 30px;" > -- KidZania Cairo -- </h2>
+								</div>
+								<!-- /member name & designation -->
+								
+	                       </article>
+	                    </div>
+						<!-- end team member -->
+
+					</div>
+
+
+
+					
+				</div>  	<!-- End row -->
+			</div>   	<!-- End container -->
+		</section>   <!-- End section -->

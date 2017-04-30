@@ -1,0 +1,55 @@
+<section id="services" class="bg-one" ng-if = "!forgot">
+    <div class="container" ng-if = "!forgot">
+        <div class="row" ng-if = "!forgot">
+
+            <!-- / Start Add Business Area -->
+            <div class="contact-form col-md-6 wow fadeInUp" data-wow-duration="500ms">
+
+                <!-- section title -->
+                <div class="title text-center wow fadeIn" data-wow-duration="500ms" style="padding-bottom: 60px">
+                    <h2>Sign <span class="color">In</span></h2>
+                    <div class="border"></div>
+                </div>
+                <!-- /section title -->
+
+                <form name="form.userForm" ng-submit="submitForm(formData)" ng-if = "!forgot" novalidate>
+                    <div class="modal-body" ng-if = "!forgot">
+
+                    		<div class="alert alert-danger" ng-if = "err">{{err}}</div>
+
+                        <!-- USERNAME -->
+                        <div class="form-group" ng-if = "!forgot">
+                            <label>Username</label>
+                            <input type="text" name="username" class="form-control" ng-model="formData.username" ng-minlength="3" ng-maxlength="100" required>
+                        </div>
+
+                        <!-- PASSWORD-->
+                        <div class="form-group" ng-if = "!forgot" >
+                            <label>Password</label>
+                            <input type="password" name="password" class="form-control" ng-model="formData.password" ng-minlength="1" ng-maxlength="100" required>
+                        </div>
+
+                        <div>
+                        <center>
+                        <a href="" ng-click = "facebook()" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
+                        <a class="btn btn-warning" ng-click = "forgotPassword()" data-dismiss="modal">Forgot Password?</a>
+
+
+                        </center>
+                      </div>
+
+
+                    </div>
+                    <div class="modal-footer" ng-if = "!forgot">
+                        <button type="submit" class="btn btn-primary" ng-disabled="form.userForm.$invalid">OK</button>
+                        <a class="btn btn-warning" ng-click="cancel()">Cancel</a>
+                    </div>
+                </form>
+
+
+            </div>
+            <!-- / End Add Business Area -->
+
+          </div>
+        </div>
+      </section>

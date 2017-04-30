@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p>Business Bookings <br>
+
+	<h4>Create Booking:</h4>
+	<form action = "/bookings/book_event" method="post">
+	count:    <input type="text" name="count"><br>
+	event_id :<input type="text" name="event_id"><br>
+	<input type="submit"></button> 
+	</form>
+
+	<h4>Edit Booking:</h4>
+	<form action = "/bookings/edit_booking" method="post">
+	new count : <input type="text" name="count1" ><br>
+	booking_id :<input type="text" name="booking_id"><br>
+
+	<input type="submit"></button>
+	</form>
+
+	<h4>Cancel Booking:</h4>
+	<form action = "/bookings/cancel_booking" method="post">
+	booking_id :<input type="text" name="booking_id"><br>
+	event_id :  <input type="text" name="event_id" ><br>
+	<input type="submit"></button>
+	</form>
+
+	<h4>View Bookings of Event:</h4>
+	<form action = "/bookings/view_event_bookings" method="post">
+	event_id :<input type="text" name="event_id" ><br>
+	<input type="submit"> view certain events booking </button>
+	</form>
+	</p>
+</body>
+</html>

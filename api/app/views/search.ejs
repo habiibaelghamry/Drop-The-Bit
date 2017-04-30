@@ -1,0 +1,33 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>Search</title>
+    </head>
+    <body>
+       <form action="/search" method="POST">
+           <input type="text" name="keyword" placeholder="Search"> <br>
+           <input type="text" name="category" placeholder="Category"> <br>
+           <input type="text" name="area" placeholder="Area"> <br>
+           <input type="text" name="minRating" placeholder="Minimum rating"> <br>
+           <input type="text" name="sortBy" placeholder="Sort by"> <br>          
+           
+           <button type="submit"> Search </button>
+       </form> 
+
+       <div>
+           <h2>Results</h2>
+           <% if(result.length == 0) { %>
+            No search result. 
+            <% } %>
+           <% for(var i = 0; i < result.length; i++) { %>
+                <h3> <%= result[i].name %></h3> <br>
+                   <%= result[i].area %> <br>
+                   <%= result[i].description %> <br> 
+                   <%= result[i].category %> <br>
+                   <%= result[i].average_rating + "" %> <br>
+                   
+                   
+           <% } %>  
+       </div>
+    </body>
+</html>

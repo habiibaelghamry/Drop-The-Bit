@@ -1,0 +1,85 @@
+
+<div ng-if ="type != 4 && type != 1">
+           <center>
+           <h1>Please log in to view this page.</h1><br><br><br><br><br><br><br><br>
+           </center>
+</div>
+
+  <div ng-show="type == 4 || type == 1">
+       <section id="about" class="text-center" >
+            <div ng-controller="bookingEventController" class="container">
+                <div class="title text-center wow fadeIn" data-wow-duration="1500ms" >
+                        <h2>Book<span class="color">ING</span></h2>
+                        <div class="border"></div>
+                </div>
+                      <form ng-model="formData">
+                        <h3>Number of people  :  <input type="Number" style="color:#000;" ng-model="formData.count" min = {{min}} max = {{max}}><br></h3>
+                        <h4>Available places: {{max}}</h4><br><br>
+                                         <div class="border"></div>
+
+
+                      <div ng-show="offers.length > 0">
+                        <div>
+                            <h3> <u style="color: #6CB670;">Special Offers:</u></h3> <br>
+
+                            <div  ng-repeat="offer in offers track by $index" ng-if="offer.type === 'specific_audience'">
+
+                              <input type="radio" ng-model="formData.chosen_offer" name="chosen_offer" value="{{offer.value}}">
+
+                             <label><h4>{{"Offer: "+offer.name }} <br>{{ "  details: "+offer.details +" discount: "+ offer.value +"%"}} </h4></label>
+                              <br>
+
+                            </div> <br>
+                        </div>
+
+                       
+                          <h3><u style="color: #6CB670;">On-going Offers:</u></h3> <br>
+                    <div style = "margin: auto; max-width: 100%; ">
+                        <div style="text-align: left width: 800px; margin:0 auto;" ng-repeat="offer in offers track by $index" ng-if="offer.type !== 'specific_audience'">
+                         <label><h4>{{"Offer: "+offer.name }} <br>{{ "  details: "+offer.details +" discount: "+ offer.value +"%"}} </h4></label>
+                         <br>
+                        </div> <br><br>
+                        </div> 
+                        </div>
+                        {{error_message}}
+                        <div ng-show="cash">
+                        <button type="submit" ng-if="type == 1|| type == 4" class="btn btn-transparent" ng-disabled="!formData.count" ng-click="book_cash()"> BOOK NOW AND PAY CASH</button>
+                        </div>
+                        <div ng-show="stripe">
+                        <button type="submit" ng-if="type == 1" class="btn btn-transparent" ng-disabled="!formData.count" ng-click="open_stripe()"> BOOK NOW WITH STRIPE</button>
+                        </div>
+                       </form>
+                       <br><br>
+                    
+                </div>
+                </section>
+        </div>
+       
+        <section id="main-features">
+            <div class="container">
+                <div class="row">
+                    
+                    <!-- features item -->
+                    <div id="features">
+                        <div class="item">
+                            
+                            <div class="features-item">
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="item">
+                            <div class="features-item">
+                                                            
+                                <!-- features content -->
+                                <div class="col-md-6 feature-desc wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>     
+            </div>     
+        </section>   

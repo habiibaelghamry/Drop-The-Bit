@@ -1,0 +1,21 @@
+#map_canvas img {
+  max-width: none;
+}
+
+[class*="span"] {
+  float: left;
+  min-height: 1px;
+  margin-left: 20px;
+}
+
+.span9 {
+  width: 700px;
+}
+
+.span5 {
+  width: 380px;
+}
+
+.span4 {
+  width: 300px;
+}

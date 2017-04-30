@@ -1,0 +1,26 @@
+<div class="modal-header">
+    <h3 style="color:#000;">Edit Event</h3>
+</div>
+<form name="form.userForm" ng-submit="submitForm()" novalidate>
+    <div class="modal-body">
+
+         <div class="form-group">
+            <label style="color:#000;">Price</label>
+            <input type="number" class="form-control" min = "1" ng-model="formData.price">
+        </div>
+          <div class="form-group">
+         <label style="color:#000;">Enter Your Days Off(including your current ones)</label> <br>
+         <input type="checkbox" ng-model = "formData.day0" value="0"  style="color:#000;"> <label style="color:#000;"> Sunday </label> <br>
+         <input type="checkbox" ng-model = "formData.day1" value="1" style="color:#000;"> <label style="color:#000;"> Monday </label> <br>
+         <input type="checkbox" ng-model = "formData.day2" value="2" style="color:#000;"> <label style="color:#000;"> Tuesday </label> <br>
+         <input type="checkbox" ng-model = "formData.day3" value="3"  style="color:#000;"> <label style="color:#000;"> Wednesday </label> <br>
+         <input type="checkbox" ng-model = "formData.day4" value="4" style="color:#000;"> <label style="color:#000;"> Thursday </label> <br>
+         <input type="checkbox" ng-model = "formData.day5" value="5" style="color:#000;"> <label style="color:#000;"> Friday </label> <br>
+         <input type="checkbox" ng-model = "formData.day6" value="6" style="color:#000;"> <label style="color:#000;"> Saturday </label> <br>
+       </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" ng-disabled="form.userForm.$invalid" style="color:#000;">Edit</button>
+        <button class="btn btn-warning" ng-click="cancel()" style="color:#000;">Cancel</button>
+    </div>

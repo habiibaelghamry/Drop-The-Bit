@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Create Offer: </h1>
+    <form action = "/offers/createOffer" enctype="multipart/form-data" method="post">
+
+    name: <input type="text" name="name"><br>
+    type: <input type="text" name="type" ><br>
+    details: <input type="text" name="details" ><br>
+    value: <input type="text" name="value" ><br>
+    start_date: <input type="datetime-local" name="start_date" ><br>
+    expiration_date: <input type="datetime-local" name="expiration_date" ><br>
+    Image: <input type="file" name = "image"><br>
+    notify_subscribers:  	<input type="radio" name="notify_subscribers" value="1" > Yes<br>
+      		                <input type="radio" name="notify_subscribers" value="0"> No<br>
+  	<input type="submit"><br> </button>
+
+  	</form>
+    <p>---------------------------------------------------------------------</p>
+
+    <h1>View Offers: </h1>
+
+    <% if(offers.length == 0) { %>
+      <p>No offers to show</p>
+      <% }%>
+    <% for(var i = 0; i < offers.length; i++) {%>
+      <p><%= offers[i] %></p>
+      <a href="/offers/deleteOffer/?id=<%=offers[i]._id%>"> delete offer</a>
+      <br>
+      <a href="/offers/update_offer/?id=<%=offers[i]._id%>"> update offer</a>
+      <p>------------------------------------------</p>
+    <% } %>
+  </body>
+</html>
