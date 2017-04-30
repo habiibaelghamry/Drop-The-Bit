@@ -1,5 +1,6 @@
 # Fasa7ny
- A web platform that hosts recreational and entertainment businesses. This project is part of the Software Engineering course at the German University in Cairo. 
+ A web platform that hosts recreational and entertainment businesses. This project is part of the Software Engineering course at the German University in Cairo.
+Bonus Feature: Facebook Messenger Bot.
 
 ## Installation
 ### Prerequisites
