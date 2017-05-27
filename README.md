@@ -27,7 +27,7 @@ You can find an installation guide [here](https://github.com/abdelrahman-elkady/
 ## URI
 http://54.187.92.64:8000/
 
-##Awards:
+## Awards:
 + 1st Place winners in Entertainment Theme
 + Best User Interface
 + 2nd Place winners over all projects
